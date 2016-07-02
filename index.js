@@ -190,11 +190,7 @@ class QueueList {
    * @private
    */
   _fromArray(array) {
-    // const list = this._list = new Array(0);
-    // while (list.length < array.length) this._growArray();
     for (let i = 0; i < array.length; i++) this.push(array[i]);
-    // console.log(this._list);
-    // this._tail = array.length & this._capacityMask;
   }
 
   /**
@@ -230,7 +226,7 @@ class QueueList {
 
     // head is at 0 and array is now full, safe to extend
     this._tail = this._list.length;
-    // console.log(this._list.length);
+
     this._list.length *= 2;
     this._capacityMask = (this._capacityMask << 1) | 1;
   }
