@@ -1,6 +1,6 @@
 {
   "name": "denque",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "The fastest javascript implementation of a double-ended queue. Maintains compatability with deque.",
   "main": "index.js",
   "engines": {

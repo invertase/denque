@@ -1,9 +1,9 @@
 # DENQUE
 
 [![Coverage Status](https://coveralls.io/repos/github/Salakar/denque/badge.svg?branch=master)](https://coveralls.io/github/Salakar/denque?branch=master)
-[![npm version](https://img.shields.io/npm/v/denque.svg)](https://www.npmjs.com/package/denque)
 [![dependencies](https://img.shields.io/david/Salakar/denque.svg)](https://david-dm.org/Salakar/denque)
 [![build](https://travis-ci.org/Salakar/denque.svg)](https://travis-ci.org/Salakar/denque)
+[![npm version](https://img.shields.io/npm/v/denque.svg)](https://www.npmjs.com/package/denque)
 [![License](https://img.shields.io/npm/l/denque.svg)](/LICENSE)
 
 Extremely fast [double-ended queue](http://en.wikipedia.org/wiki/Double-ended_queue) implementation. Double-ended queues can also be used as a:
