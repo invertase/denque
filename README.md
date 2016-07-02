@@ -14,7 +14,7 @@ Extremely fast [double-ended queue](http://en.wikipedia.org/wiki/Double-ended_qu
 
 This implementation is currently the fastest available, even faster than `double-ended-queue`, see the [benchmarks](#benchmarks)
 
-Every queue operation is done in constant `O(1)` - including random access from `.peekAt(index)`.
+Every queue operation is done at a constant `O(1)` - including random access from `.peekAt(index)`.
 
 # Quick Start
 
