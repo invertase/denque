@@ -1,0 +1,47 @@
+{
+  "name": "denque",
+  "version": "1.0.0",
+  "description": "The fastest javascript implementation of a double-ended queue. Maintains compatability with deque.",
+  "main": "index.js",
+  "engines": {
+    "node": ">=4.0"
+  },
+  "keywords": [
+    "data-structure",
+    "data-structures",
+    "queue",
+    "double",
+    "end",
+    "ended",
+    "deque",
+    "denque",
+    "double-ended-queue"
+  ],
+  "scripts": {
+    "test": "istanbul cover --report lcov _mocha",
+    "coveralls": "cat ./coverage/lcov.info | coveralls",
+    "benchmark_thousand": "node benchmark/thousand",
+    "benchmark_two_million": "node benchmark/two_million"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Salakar/denque.git"
+  },
+  "author": {
+    "name": "Mike Diarmid",
+    "email": "mike.diarmid@teamfa.com",
+    "url": "http://github.com/Salakar/"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Salakar/denque/issues"
+  },
+  "homepage": "https://github.com/Salakar/denque#readme",
+  "devDependencies": {
+    "benchmark": "^2.1.0",
+    "coveralls": "^2.11.9",
+    "double-ended-queue": "^2.1.0-0",
+    "istanbul": "^0.4.4",
+    "mocha": "^2.5.3"
+  }
+}
