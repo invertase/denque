@@ -1,8 +1,6 @@
 # DENQUE
 
 [![Coverage Status](https://coveralls.io/repos/github/Salakar/denque/badge.svg?branch=master)](https://coveralls.io/github/Salakar/denque?branch=master)
-![Downloads](https://img.shields.io/npm/dt/denque.svg)
-[![node](https://img.shields.io/node/v/gh-badges.svg?maxAge=2592000)]()
 [![npm version](https://img.shields.io/npm/v/denque.svg)](https://www.npmjs.com/package/denque)
 [![dependencies](https://img.shields.io/david/Salakar/denque.svg)](https://david-dm.org/Salakar/denque)
 [![build](https://travis-ci.org/Salakar/denque.svg)](https://travis-ci.org/Salakar/denque)
