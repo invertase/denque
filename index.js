@@ -84,6 +84,14 @@ class QueueList {
   }
 
   /**
+   * Returns the current length of the queue
+   * @return {Number}
+   */
+  get length() {
+    return this.size()
+  }
+
+  /**
    * Return the number of items on the list, or 0 if empty.
    * @returns {number}
    */
@@ -241,13 +249,5 @@ class QueueList {
   }
 
 }
-
-Object.defineProperty(QueueList.prototype, 'length', {
-  get() {
-    if (this._head === this._tail) return 0;
-    if (this._head < this._tail) return this._tail - this._head;
-    else return this._capacityMask + 1 - (this._head - this._tail);
-  }
-});
 
 module.exports = QueueList;
