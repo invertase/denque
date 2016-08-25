@@ -106,7 +106,7 @@ class QueueList {
    * @param item
    */
   unshift(item) {
-    if (!item) return this.length;
+    if (item === undefined) return this.length;
     const len = this._list.length;
     this._head = (this._head - 1 + len) & this._capacityMask;
     this._list[this._head] = item;
@@ -134,7 +134,7 @@ class QueueList {
    * @param item
    */
   push(item) {
-    if (!item) return this.length;
+    if (item === undefined) return this.length;
     const tail = this._tail;
     this._list[tail] = item;
     this._tail = (tail + 1) & this._capacityMask;
