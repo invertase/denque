@@ -50,6 +50,16 @@ class QueueList {
   }
 
   /**
+   * Returns the current length of the queue
+   * @return {Number}
+   */
+  get length() {
+    if (this._head === this._tail) return 0;
+    if (this._head < this._tail) return this._tail - this._head;
+    else return this._capacityMask + 1 - (this._head - this._tail);
+  }
+
+  /**
    * Alias for peakAt()
    * @param i
    * @returns {*}
@@ -241,13 +251,5 @@ class QueueList {
   }
 
 }
-
-Object.defineProperty(QueueList.prototype, 'length', {
-  get() {
-    if (this._head === this._tail) return 0;
-    if (this._head < this._tail) return this._tail - this._head;
-    else return this._capacityMask + 1 - (this._head - this._tail);
-  }
-});
 
 module.exports = QueueList;
