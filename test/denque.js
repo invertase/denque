@@ -90,6 +90,23 @@ describe('Denque.prototype.push', function () {
     assert(ret === 0);
   });
 
+  it("Should add falsey elements (except undefined)", function () {
+    const a = new Denque();
+    const before = a.length;
+    let ret = a.push(0);
+    assert.strictEqual(ret, 1);
+    assert.strictEqual(a.length, 1);
+    assert.strictEqual(a.get(0), 0);
+    ret = a.push('');
+    assert.strictEqual(ret, 2);
+    assert.strictEqual(a.length, 2);
+    assert.strictEqual(a.get(1), '');
+    ret = a.push(null);
+    assert.strictEqual(ret, 3);
+    assert.strictEqual(a.length, 3);
+    assert.strictEqual(a.get(2), null);
+  });
+
   it("Should add single argument - plenty of capacity", function () {
     const a = new Denque([1, 2, 3, 4, 5]);
     assert(a._list.length - a.length > 1);
@@ -134,6 +151,23 @@ describe('Denque.prototype.unshift', function () {
     assert(ret === before);
     assert(a.length === ret);
     assert(ret === 0);
+  });
+
+  it("Should unshift falsey elements (except undefined)", function () {
+    const a = new Denque();
+    const before = a.length;
+    let ret = a.unshift(0);
+    assert.strictEqual(ret, 1);
+    assert.strictEqual(a.length, 1);
+    assert.strictEqual(a.get(0), 0);
+    ret = a.unshift('');
+    assert.strictEqual(ret, 2);
+    assert.strictEqual(a.length, 2);
+    assert.strictEqual(a.get(0), '');
+    ret = a.unshift(null);
+    assert.strictEqual(ret, 3);
+    assert.strictEqual(a.length, 3);
+    assert.strictEqual(a.get(0), null);
   });
 
   it("Should add single argument - plenty of capacity", function () {
