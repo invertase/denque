@@ -1,7 +1,6 @@
 # DENQUE
 
 [![Coverage Status](https://coveralls.io/repos/github/Salakar/denque/badge.svg?branch=master)](https://coveralls.io/github/Salakar/denque?branch=master)
-[![dependencies](https://img.shields.io/david/Salakar/denque.svg)](https://david-dm.org/Salakar/denque)
 [![build](https://travis-ci.org/Salakar/denque.svg)](https://travis-ci.org/Salakar/denque)
 [![npm version](https://img.shields.io/npm/v/denque.svg)](https://www.npmjs.com/package/denque)
 [![License](https://img.shields.io/npm/l/denque.svg)](/LICENSE)
@@ -14,6 +13,8 @@ Extremely fast [double-ended queue](http://en.wikipedia.org/wiki/Double-ended_qu
 This implementation is currently the fastest available, even faster than `double-ended-queue`, see the [benchmarks](#benchmarks)
 
 Every queue operation is done at a constant `O(1)` - including random access from `.peekAt(index)`.
+
+**Requires Node v4 or above.**
 
 # Quick Start
 
