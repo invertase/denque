@@ -92,7 +92,7 @@ describe('Denque.prototype.push', function () {
 
   it("Should add falsey elements (except undefined)", function () {
     const a = new Denque();
-    const before = a.length;
+    // const before = a.length;
     let ret = a.push(0);
     assert.strictEqual(ret, 1);
     assert.strictEqual(a.length, 1);
@@ -155,7 +155,7 @@ describe('Denque.prototype.unshift', function () {
 
   it("Should unshift falsey elements (except undefined)", function () {
     const a = new Denque();
-    const before = a.length;
+    // const before = a.length;
     let ret = a.unshift(0);
     assert.strictEqual(ret, 1);
     assert.strictEqual(a.length, 1);
