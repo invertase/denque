@@ -2,11 +2,8 @@
 
 /**
  * Custom implementation of a double ended queue.
- * This is almost double the performance of petkaantonov's double-ended-queue lib. ¯\_(ツ)_/¯
- * 24 mil ops/s compared to 14 mil
- *
  */
-class QueueList {
+module.exports = class Denque {
   constructor(array) {
     // circular buffer
     this._list = new Array(4);
@@ -247,7 +244,4 @@ class QueueList {
     this._list.length >>>= 1;
     this._capacityMask >>>= 1;
   }
-
-}
-
-module.exports = QueueList;
+};
