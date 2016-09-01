@@ -14,7 +14,7 @@ This implementation is currently the fastest available, even faster than `double
 
 Every queue operation is done at a constant `O(1)` - including random access from `.peekAt(index)`.
 
-**Requires Node v4 or above.**
+**Requires Node.js v4+, io.js v3+ or any platform supporting ES6 classes.**
 
 # Quick Start
 
