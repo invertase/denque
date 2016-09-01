@@ -5,7 +5,9 @@
 [![npm version](https://img.shields.io/npm/v/denque.svg)](https://www.npmjs.com/package/denque)
 [![License](https://img.shields.io/npm/l/denque.svg)](/LICENSE)
 
-Extremely fast [double-ended queue](http://en.wikipedia.org/wiki/Double-ended_queue) implementation. Double-ended queues can also be used as a:
+Extremely fast and lightweight [double-ended queue](http://en.wikipedia.org/wiki/Double-ended_queue) implementation with zero dependencies.
+
+Double-ended queues can also be used as a:
 
 - [Stack](http://en.wikipedia.org/wiki/Stack_\(abstract_data_type\))
 - [Queue](http://en.wikipedia.org/wiki/Queue_\(data_structure\))
