@@ -121,6 +121,7 @@ module.exports = class Denque {
     const head = this._head;
     if (head === this._tail) return undefined;
     const item = this._list[head];
+    this._list[head] = undefined;
     this._head = (head + 1) & this._capacityMask;
     if (head < 2 && this._tail > 10000 && this._tail <= this._list.length >>> 2) this._shrinkArray();
     return item;
@@ -154,6 +155,7 @@ module.exports = class Denque {
     const len = this._list.length;
     this._tail = (tail - 1 + len) & this._capacityMask;
     const item = this._list[this._tail];
+    this._list[this._tail] = undefined;
     if (this._head < 2 && tail > 10000 && tail <= len >>> 2) this._shrinkArray();
     return item;
   }
