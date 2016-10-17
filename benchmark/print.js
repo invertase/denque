@@ -2,12 +2,12 @@
 
 console.log("Platform info:");
 
-const os = require("os");
-const v8 = process.versions.v8;
-const node = process.versions.node;
-const plat = os.type() + " " + os.release() + " " + os.arch() + "\nNode.JS " + node + "\nV8 " + v8;
+var os = require("os");
+var v8 = process.versions.v8;
+var node = process.versions.node;
+var plat = os.type() + " " + os.release() + " " + os.arch() + "\nNode.JS " + node + "\nV8 " + v8;
 
-let cpus = os.cpus().map(function (cpu) {
+var cpus = os.cpus().map(function (cpu) {
   return cpu.model;
 }).reduce(function (o, model) {
   if (!o[model]) o[model] = 0;

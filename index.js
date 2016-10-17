@@ -38,7 +38,7 @@ Denque.prototype.peekAt = function peekAt(index) {
   if ((i !== (i | 0))) {
     return void 0;
   }
-  const len = this.size();
+  var len = this.size();
   if (i >= len || i < -len) return undefined;
   if (i < 0) i += len;
   i = (this._head + i) & this._capacityMask;
@@ -105,7 +105,7 @@ Denque.prototype.size = function size() {
  */
 Denque.prototype.unshift = function unshift(item) {
   if (item === undefined) return this.length;
-  const len = this._list.length;
+  var len = this._list.length;
   this._head = (this._head - 1 + len) & this._capacityMask;
   this._list[this._head] = item;
   if (this._tail === this._head) this._growArray();
@@ -119,9 +119,9 @@ Denque.prototype.unshift = function unshift(item) {
  * @returns {*}
  */
 Denque.prototype.shift = function shift() {
-  const head = this._head;
+  var head = this._head;
   if (head === this._tail) return undefined;
-  const item = this._list[head];
+  var item = this._list[head];
   this._list[head] = undefined;
   this._head = (head + 1) & this._capacityMask;
   if (head < 2 && this._tail > 10000 && this._tail <= this._list.length >>> 2) this._shrinkArray();
@@ -134,7 +134,7 @@ Denque.prototype.shift = function shift() {
  */
 Denque.prototype.push = function push(item) {
   if (item === undefined) return this.length;
-  const tail = this._tail;
+  var tail = this._tail;
   this._list[tail] = item;
   this._tail = (tail + 1) & this._capacityMask;
   if (this._tail === this._head) {
@@ -151,11 +151,11 @@ Denque.prototype.push = function push(item) {
  * @returns {*}
  */
 Denque.prototype.pop = function pop() {
-  const tail = this._tail;
+  var tail = this._tail;
   if (tail === this._head) return undefined;
-  const len = this._list.length;
+  var len = this._list.length;
   this._tail = (tail - 1 + len) & this._capacityMask;
-  const item = this._list[this._tail];
+  var item = this._list[this._tail];
   this._list[this._tail] = undefined;
   if (this._head < 2 && tail > 10000 && tail <= len >>> 2) this._shrinkArray();
   return item;
@@ -208,9 +208,9 @@ Denque.prototype._fromArray = function _fromArray(array) {
  * @private
  */
 Denque.prototype._copyArray = function _copyArray(fullCopy) {
-  const newArray = [];
-  const list = this._list;
-  const len = list.length;
+  var newArray = [];
+  var list = this._list;
+  var len = list.length;
   var i;
   if (fullCopy || this._head > this._tail) {
     for (i = this._head; i < len; i++) newArray.push(list[i]);

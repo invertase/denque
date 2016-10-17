@@ -2,16 +2,16 @@
 
 require('./print');
 
-const Benchmark = require('benchmark');
-const suite = new Benchmark.Suite();
+var Benchmark = require('benchmark');
+var suite = new Benchmark.Suite();
 
-const Denque = require('./../');
-const DoubleEndedQueue = require('double-ended-queue');
+var Denque = require('./../');
+var DoubleEndedQueue = require('double-ended-queue');
 
-const denque = new Denque();
-const doubleEndedQueue = new DoubleEndedQueue();
+var denque = new Denque();
+var doubleEndedQueue = new DoubleEndedQueue();
 
-let l = 2000000;
+var l = 2000000;
 
 while (--l) {
   denque.push(l);
@@ -20,18 +20,18 @@ while (--l) {
 
 suite
   .add('denque', function () {
-    const a = denque.shift();
-    const b = denque.shift();
-    const c = denque.shift();
+    var a = denque.shift();
+    var b = denque.shift();
+    var c = denque.shift();
 
     denque.push(a);
     denque.push(b);
     denque.push(c);
   })
   .add('double-ended-queue', function () {
-    const a = doubleEndedQueue.shift();
-    const b = doubleEndedQueue.shift();
-    const c = doubleEndedQueue.shift();
+    var a = doubleEndedQueue.shift();
+    var b = doubleEndedQueue.shift();
+    var c = doubleEndedQueue.shift();
 
     doubleEndedQueue.push(a);
     doubleEndedQueue.push(b);
