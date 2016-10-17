@@ -1,11 +1,11 @@
 'use strict';
 
-const assert = require('assert');
-const Denque = require('../es5');
+var assert = require('assert');
+var Denque = require('../es5');
 
 describe('Denque.prototype.constructor', function () {
   it("should take no argument", function () {
-    const a = new Denque();
+    var a = new Denque();
     assert(a._capacityMask === 3);
     assert(a._list.length === 4);
     assert(a.size() === 0);
@@ -13,8 +13,8 @@ describe('Denque.prototype.constructor', function () {
   });
 
   it("should take array argument", function () {
-    const a = new Denque([1, 2, 3, 4]);
-    const b = new Denque([]);
+    var a = new Denque([1, 2, 3, 4]);
+    var b = new Denque([]);
 
     assert(a.length >= 4);
     assert.deepEqual(a.toArray(), [1, 2, 3, 4]);
@@ -24,8 +24,8 @@ describe('Denque.prototype.constructor', function () {
 
   it("should handle a high volume with no out of memory exception", function () {
     this.timeout(20000);
-    const denque = new Denque();
-    let l = 250000;
+    var denque = new Denque();
+    var l = 250000;
 
     while (--l) {
       denque.push(l);
@@ -34,7 +34,7 @@ describe('Denque.prototype.constructor', function () {
 
     l = 125000;
     while (--l) {
-      const a = denque.shift();
+      var a = denque.shift();
       denque.pop();
       denque.shift();
       denque.push(a);
@@ -75,25 +75,25 @@ describe('Denque.prototype.constructor', function () {
 
 describe('Denque.prototype.toArray', function () {
   it("should return an array", function () {
-    const a = new Denque([1, 2, 3, 4]);
+    var a = new Denque([1, 2, 3, 4]);
     assert.deepEqual(a.toArray(), [1, 2, 3, 4]);
   });
 });
 
 describe('Denque.prototype.push', function () {
   it("Should do nothing if no arguments", function () {
-    const a = new Denque();
-    const before = a.length;
-    const ret = a.push();
+    var a = new Denque();
+    var before = a.length;
+    var ret = a.push();
     assert(ret === before);
     assert(a.length === ret);
     assert(ret === 0);
   });
 
   it("Should add falsey elements (except undefined)", function () {
-    const a = new Denque();
-    // const before = a.length;
-    let ret = a.push(0);
+    var a = new Denque();
+    // var before = a.length;
+    var ret = a.push(0);
     assert.strictEqual(ret, 1);
     assert.strictEqual(a.length, 1);
     assert.strictEqual(a.get(0), 0);
@@ -108,10 +108,10 @@ describe('Denque.prototype.push', function () {
   });
 
   it("Should add single argument - plenty of capacity", function () {
-    const a = new Denque([1, 2, 3, 4, 5]);
+    var a = new Denque([1, 2, 3, 4, 5]);
     assert(a._list.length - a.length > 1);
-    const before = a.length;
-    const ret = a.push(1);
+    var before = a.length;
+    var ret = a.push(1);
     assert(ret === before + 1);
     assert(a.length === ret);
     assert(ret === 6);
@@ -119,10 +119,10 @@ describe('Denque.prototype.push', function () {
   });
 
   it("Should add single argument - exact capacity", function () {
-    const a = new Denque([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]);
+    var a = new Denque([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]);
     assert(a._list.length - a.length === 1);
-    const before = a.length;
-    const ret = a.push(1);
+    var before = a.length;
+    var ret = a.push(1);
     assert(ret === before + 1);
     assert(a.length === ret);
     assert(ret === 16);
@@ -130,10 +130,10 @@ describe('Denque.prototype.push', function () {
   });
 
   it("Should add single argument - over capacity", function () {
-    const a = new Denque([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]);
+    var a = new Denque([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]);
     assert(a._list.length / a.length === 2);
-    const before = a.length;
-    const ret = a.push(1);
+    var before = a.length;
+    var ret = a.push(1);
     assert(ret === before + 1);
     assert(a.length === ret);
     assert(ret === 17);
@@ -145,18 +145,18 @@ describe('Denque.prototype.push', function () {
 describe('Denque.prototype.unshift', function () {
 
   it("Should do nothing if no arguments", function () {
-    const a = new Denque();
-    const before = a.length;
-    const ret = a.unshift();
+    var a = new Denque();
+    var before = a.length;
+    var ret = a.unshift();
     assert(ret === before);
     assert(a.length === ret);
     assert(ret === 0);
   });
 
   it("Should unshift falsey elements (except undefined)", function () {
-    const a = new Denque();
-    // const before = a.length;
-    let ret = a.unshift(0);
+    var a = new Denque();
+    // var before = a.length;
+    var ret = a.unshift(0);
     assert.strictEqual(ret, 1);
     assert.strictEqual(a.length, 1);
     assert.strictEqual(a.get(0), 0);
@@ -171,10 +171,10 @@ describe('Denque.prototype.unshift', function () {
   });
 
   it("Should add single argument - plenty of capacity", function () {
-    const a = new Denque([1, 2, 3, 4, 5]);
+    var a = new Denque([1, 2, 3, 4, 5]);
     assert(a._list.length - a.length > 1);
-    const before = a.length;
-    const ret = a.unshift(1);
+    var before = a.length;
+    var ret = a.unshift(1);
     assert(ret === before + 1);
     assert(a.length === ret);
     assert(ret === 6);
@@ -182,10 +182,10 @@ describe('Denque.prototype.unshift', function () {
   });
 
   it("Should add single argument - exact capacity", function () {
-    const a = new Denque([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]);
+    var a = new Denque([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]);
     assert(a._list.length - a.length === 1);
-    const before = a.length;
-    const ret = a.unshift(1);
+    var before = a.length;
+    var ret = a.unshift(1);
     assert(ret === before + 1);
     assert(a.length === ret);
     assert(ret === 16);
@@ -193,10 +193,10 @@ describe('Denque.prototype.unshift', function () {
   });
 
   it("Should add single argument - over capacity", function () {
-    const a = new Denque([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]);
+    var a = new Denque([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]);
     assert(a._list.length / a.length === 2);
-    const before = a.length;
-    const ret = a.unshift(1);
+    var before = a.length;
+    var ret = a.unshift(1);
     assert(ret === before + 1);
     assert(a.length === ret);
     assert(ret === 17);
@@ -207,7 +207,7 @@ describe('Denque.prototype.unshift', function () {
 
 describe('Denque.prototype.pop', function () {
   it("Should return undefined when empty denque", function () {
-    const a = new Denque();
+    var a = new Denque();
     assert(a.length === 0);
     assert(a.pop() === void 0);
     assert(a.pop() === void 0);
@@ -215,8 +215,8 @@ describe('Denque.prototype.pop', function () {
   });
 
   it("Should return the item at the back of the denque", function () {
-    const a = new Denque([1, 2, 3, 4, 5, 6, 7, 8, 9]);
-    const b = [];
+    var a = new Denque([1, 2, 3, 4, 5, 6, 7, 8, 9]);
+    var b = [];
 
     b.push(1, 2, 3, 4, 5, 6, 7, 8, 9);
 
@@ -251,7 +251,7 @@ describe('Denque.prototype.pop', function () {
 
 describe('Deque.prototype.shift', function () {
   it("Should return undefined when empty denque", function () {
-    const a = new Denque();
+    var a = new Denque();
     assert(a.length === 0);
     assert(a.shift() === void 0);
     assert(a.shift() === void 0);
@@ -259,8 +259,8 @@ describe('Deque.prototype.shift', function () {
   });
 
   it("Should return the item at the front of the denque", function () {
-    const a = new Denque([1, 2, 3, 4, 5, 6, 7, 8, 9]);
-    const b = [];
+    var a = new Denque([1, 2, 3, 4, 5, 6, 7, 8, 9]);
+    var b = [];
 
     b.push(1, 2, 3, 4, 5, 6, 7, 8, 9);
 
@@ -295,7 +295,7 @@ describe('Deque.prototype.shift', function () {
 
 describe('Denque.prototype.get', function () {
   it("should return undefined on nonsensical argument", function () {
-    const a = new Denque([1, 2, 3, 4]);
+    var a = new Denque([1, 2, 3, 4]);
     assert(a.get(-5) === void 0);
     assert(a.get(-100) === void 0);
     assert(a.get(void 0) === void 0);
@@ -308,7 +308,7 @@ describe('Denque.prototype.get', function () {
   });
 
   it("should support positive indexing", function () {
-    const a = new Denque([1, 2, 3, 4]);
+    var a = new Denque([1, 2, 3, 4]);
     assert(a.get(0) === 1);
     assert(a.get(1) === 2);
     assert(a.get(2) === 3);
@@ -316,7 +316,7 @@ describe('Denque.prototype.get', function () {
   });
 
   it("should support negative indexing", function () {
-    const a = new Denque([1, 2, 3, 4]);
+    var a = new Denque([1, 2, 3, 4]);
     assert(a.get(-1) === 4);
     assert(a.get(-2) === 3);
     assert(a.get(-3) === 2);
@@ -326,19 +326,19 @@ describe('Denque.prototype.get', function () {
 
 describe('Denque.prototype.isEmpty', function () {
   it("should return true on empty denque", function () {
-    const a = new Denque();
+    var a = new Denque();
     assert(a.isEmpty());
   });
 
   it("should return false on denque with items", function () {
-    const a = new Denque([1]);
+    var a = new Denque([1]);
     assert(!a.isEmpty());
   });
 });
 
 describe('Denque.prototype.peekFront', function () {
   it("Should return undefined when queue is empty", function() {
-    const a = new Denque();
+    var a = new Denque();
     assert(a.length === 0);
     assert(a.peekFront() === void 0);
     assert(a.peekFront() === void 0);
@@ -346,10 +346,10 @@ describe('Denque.prototype.peekFront', function () {
   });
 
   it("should return the item at the front of the denque", function () {
-    const a = new Denque([1, 2, 3, 4, 5, 6, 7, 8, 9]);
+    var a = new Denque([1, 2, 3, 4, 5, 6, 7, 8, 9]);
     assert(a.peekFront() === 1);
 
-    let l = 5;
+    var l = 5;
     while (l--) a.pop();
 
     assert.deepEqual(a.toArray(), [1, 2, 3, 4]);
@@ -360,7 +360,7 @@ describe('Denque.prototype.peekFront', function () {
 
 describe('Denque.prototype.peekBack', function () {
   it("Should return undefined when queue is empty", function() {
-    const a = new Denque();
+    var a = new Denque();
     assert(a.length === 0);
     assert(a.peekBack() === void 0);
     assert(a.peekBack() === void 0);
@@ -368,10 +368,10 @@ describe('Denque.prototype.peekBack', function () {
   });
 
   it("should return the item at the back of the denque", function () {
-    const a = new Denque([1, 2, 3, 4, 5, 6, 7, 8, 9]);
+    var a = new Denque([1, 2, 3, 4, 5, 6, 7, 8, 9]);
     assert(a.peekBack() === 9);
 
-    let l = 5;
+    var l = 5;
     while (l--) a.pop();
 
     assert.deepEqual(a.toArray(), [1, 2, 3, 4]);
@@ -383,7 +383,7 @@ describe('Denque.prototype.peekBack', function () {
 
 describe('Denque.prototype.clear', function () {
   it("should clear the denque", function () {
-    const a = new Denque([1, 2, 3, 4]);
+    var a = new Denque([1, 2, 3, 4]);
     assert(!a.isEmpty());
     a.clear();
     assert(a.isEmpty());
