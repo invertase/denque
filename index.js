@@ -34,7 +34,7 @@ module.exports = class Denque {
    * @returns {*}
    */
   peekAt(index) {
-    let i = index;
+    var i = index;
     // expect a number or return undefined
     if ((i !== (i | 0))) {
       return void 0;
@@ -197,7 +197,7 @@ module.exports = class Denque {
    * @private
    */
   _fromArray(array) {
-    for (let i = 0; i < array.length; i++) this.push(array[i]);
+    for (var i = 0; i < array.length; i++) this.push(array[i]);
   }
 
   /**
@@ -210,7 +210,7 @@ module.exports = class Denque {
     const newArray = [];
     const list = this._list;
     const len = list.length;
-    let i;
+    var i;
     if (fullCopy || this._head > this._tail) {
       for (i = this._head; i < len; i++) newArray.push(list[i]);
       for (i = 0; i < this._tail; i++) newArray.push(list[i]);
