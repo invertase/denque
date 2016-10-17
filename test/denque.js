@@ -1,7 +1,7 @@
 'use strict';
 
 const assert = require('assert');
-const Denque = require('../');
+const Denque = require('../es5');
 
 describe('Denque.prototype.constructor', function () {
   it("should take no argument", function () {
