@@ -1,7 +1,7 @@
 'use strict';
 
 var assert = require('assert');
-var Denque = require('../es5');
+var Denque = require('../');
 
 describe('Denque.prototype.constructor', function () {
   it("should take no argument", function () {

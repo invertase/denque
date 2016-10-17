@@ -5,7 +5,7 @@ require('./print');
 const Benchmark = require('benchmark');
 const suite = new Benchmark.Suite();
 
-const Denque = require('./../es5');
+const Denque = require('./../');
 const DoubleEndedQueue = require('double-ended-queue');
 
 const denque = new Denque();
