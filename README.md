@@ -4,6 +4,7 @@
 [![build](https://travis-ci.org/Salakar/denque.svg)](https://travis-ci.org/Salakar/denque)
 [![npm version](https://img.shields.io/npm/v/denque.svg)](https://www.npmjs.com/package/denque)
 [![License](https://img.shields.io/npm/l/denque.svg)](/LICENSE)
+[![Donate](https://img.shields.io/badge/Donate-Patreon-green.svg)](https://www.patreon.com/invertase)
 
 Extremely fast and lightweight [double-ended queue](http://en.wikipedia.org/wiki/Double-ended_queue) implementation with zero dependencies.
 
