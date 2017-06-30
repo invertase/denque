@@ -178,8 +178,6 @@ Denque.prototype.removeOne = function removeOne(index) {
   var len = this._list.length;
   if (i >= size || i < -size) return undefined;
   if (i < 0) i += size;
-  if(i == 0) return this.shift();
-  if(i == size - 1) return this.pop();
   i = (this._head + i) & this._capacityMask;
   var item = this._list[i];
   if(index < size / 2){

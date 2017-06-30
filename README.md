@@ -234,8 +234,8 @@ denque1.remove(4, 100); //[5,6,7]
 ```
 ### 100000 items in queue performance
 
-    denque.remove x 25,690,552 ops/sec ±1.17% (79 runs sampled)
-    native array splice x 4,996,142 ops/sec ±2.28% (83 runs sampled)
+    denque.remove x 649,195 ops/sec ±1.33% (83 runs sampled)
+    native array splice x 54,461 ops/sec ±164.33% (11 runs sampled)
 
 <hr>
 
@@ -253,9 +253,8 @@ denque1.removeOne(1); // 2
 ```
 ### 100000 items in queue performance
 
-    denque.remove x 25,690,552 ops/sec ±1.17% (79 runs sampled)
-    native array splice x 4,996,142 ops/sec ±2.28% (83 runs sampled)
-
+    denque.removeOne x 487,168 ops/sec ±0.94% (85 runs sampled)
+    native array splice x 39,082 ops/sec ±0.87% (88 runs sampled)
 
 <hr>
 
