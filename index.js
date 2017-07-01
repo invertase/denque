@@ -231,14 +231,14 @@ Denque.prototype.remove = function remove(index, count) {
     removed[k] = this._list[(this._head + i + k) & this._capacityMask];
   }
   i = (this._head + i) & this._capacityMask;
-  if (index + count == size){
+  if (index + count === size){
     this._tail = (this._tail - count + len) & this._capacityMask;
     for(k = count; k > 0; k--){
       this._list[i = (i + 1 + len) & this._capacityMask] = void 0;
     }
     return removed;
   }
-  if(index == 0){
+  if(index === 0){
     this._head = (this._head + count + len) & this._capacityMask;
     for(k = count - 1; k > 0; k--){
       this._list[i = (i + 1 + len) & this._capacityMask] = void 0;
@@ -291,7 +291,7 @@ Denque.prototype.splice = function splice(index, count) {
   }
   if (this._head === this._tail) return void 0;
   if (i > size || i < -size) return void 0;
-  if (i == size && count != 0) return void 0;
+  if (i === size && count != 0) return void 0;
   if (i < 0) i += size;
   if(arguments.length > 2){
     var k;
@@ -305,7 +305,7 @@ Denque.prototype.splice = function splice(index, count) {
       for(k = 0; k < i; k++){
         temp[k] = this._list[(this._head + k) & this._capacityMask];
       }
-      if(count == 0){
+      if(count === 0){
         removed = [];
         if(i>0){
           this._head = (this._head + i + len) & this._capacityMask;
@@ -326,7 +326,7 @@ Denque.prototype.splice = function splice(index, count) {
       for(k = 0; k < leng; k++){
         temp[k] = this._list[(this._head + i + count + k) & this._capacityMask];
       }
-      if(count == 0){
+      if(count === 0){
         removed = [];
         if(i != size){
           this._tail = (i - 1 + len) & this._capacityMask;
