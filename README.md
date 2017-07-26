@@ -50,7 +50,7 @@ denque.pop(); // 4
 - [`isEmpty()`](#isempty---boolean)
 - [`clear()`](#clear---void)
 
-#####`new Denque()` -> `Denque`
+#### `new Denque()` -> `Denque`
 
 Creates an empty double-ended queue with initial capacity of 4.
 
