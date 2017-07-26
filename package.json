@@ -21,7 +21,9 @@
     "test": "istanbul cover --report lcov _mocha",
     "coveralls": "cat ./coverage/lcov.info | coveralls",
     "benchmark_thousand": "node benchmark/thousand",
-    "benchmark_two_million": "node benchmark/two_million"
+    "benchmark_splice": "node benchmark/splice",
+    "benchmark_remove": "node benchmark/remove",
+    "benchmark_removeOne": "node benchmark/removeOne"
   },
   "repository": {
     "type": "git",

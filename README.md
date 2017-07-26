@@ -44,6 +44,9 @@ denque.pop(); // 4
 - [`peekBack()`](#peekback---dynamic)
 - [`peekFront()`](#peekfront---dynamic)
 - [`peekAt(int index)`](#peekAtint-index---dynamic)
+- [`remove(int index, int count)`](#remove)
+- [`removeOne(int index)`](#removeOne)
+- [`splice(int index, int count, item1, item2, ...)`](#splice)
 - [`isEmpty()`](#isempty---boolean)
 - [`clear()`](#clear---void)
 
@@ -211,6 +214,72 @@ denque.peekAt(-3); // 1
 **Note**: The implementation has O(1) random access using `.peekAt()`.
 
 **Aliases:** `get`
+
+<hr>
+
+#####`remove(int index, int count)` -> `array`
+
+Remove number of items from the specified index from the list.
+
+Returns array of removed items.
+
+Returns undefined if the list is empty.
+
+```js
+var denque = new Denque([1,2,3,4,5,6,7]);
+denque.remove(0,3); //[1,2,3]
+denque.remove(1,2); //[5,6]
+var denque1 = new Denque([1,2,3,4,5,6,7]);
+denque1.remove(4, 100); //[5,6,7]
+```
+### 100000 items in queue performance
+
+    denque.remove x 649,195 ops/sec ±1.33% (83 runs sampled)
+    native array splice x 54,461 ops/sec ±164.33% (11 runs sampled)
+
+<hr>
+
+#####`removeOne(int index)` -> `dynamic`
+
+Remove and return the item at the specified index from the list.
+
+Returns undefined if the list is empty.
+
+```js
+var denque = new Denque([1,2,3,4,5,6,7]);
+denque.removeOne(4); // 5
+denque.removeOne(3); // 4
+denque1.removeOne(1); // 2
+```
+### 100000 items in queue performance
+
+    denque.removeOne x 487,168 ops/sec ±0.94% (85 runs sampled)
+    native array splice x 39,082 ops/sec ±0.87% (88 runs sampled)
+
+<hr>
+
+#####`splice(int index, int count, item1, item2, ...)` -> `array`
+
+Native splice implementation.
+
+Remove number of items from the specified index from the list and/or add new elements.
+
+Returns array of removed items or empty array if count == 0.
+
+Returns undefined if the list is empty.
+
+```js
+var denque = new Denque([1,2,3,4,5,6,7]);
+denque.splice(denque.length, 0, 8, 9, 10); // []
+denque.toArray() // [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ]
+denque.splice(3, 3, 44, 55, 66); // [4,5,6]
+denque.splice(5,4, 666,667,668,669); // [ 66, 7, 8, 9 ]
+denque.toArray() // [ 1, 2, 3, 44, 55, 666, 667, 668, 669, 10 ]
+```
+### 100000 items in queue performance
+
+    denque.splice x 178,198 ops/sec ±8.68% (61 runs sampled)
+    native array splice x 3,639 ops/sec ±4.39% (65 runs sampled)
 
 <hr>
 
