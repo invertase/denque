@@ -655,6 +655,12 @@ describe('Denque.prototype.splice', function () {
     b.unshift(1, 2, 3);
     b.splice(b.length,0, 17, 18, 19);
     assert.deepEqual(a.toArray(), b);
+    a.splice(18, 0, 18, 19);
+    b.splice(18, 0, 18, 19);
+    assert.deepEqual(a.toArray(), b);
+    a.splice(21, 0, 1, 2, 3, 4, 5, 6);
+    b.splice(21, 0, 1, 2, 3, 4, 5, 6);
+    assert.deepEqual(a.toArray(), b);
     assert.deepEqual(a.splice(a.length-1,2), b.splice(b.length-1,2)); //remove
     assert.deepEqual(a.toArray(), b);
   });
