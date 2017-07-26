@@ -181,14 +181,14 @@ Denque.prototype.removeOne = function removeOne(index) {
   i = (this._head + i) & this._capacityMask;
   var item = this._list[i];
   var k;
-  if(index < size / 2){
-    for(k = index; k > 0; k--){
+  if (index < size / 2) {
+    for (k = index; k > 0; k--) {
       this._list[i] = this._list[i = (i - 1 + len) & this._capacityMask];
     }
     this._list[i] = void 0;
     this._head = (this._head + 1 + len) & this._capacityMask;
-  }else{
-    for(k = size - 1 - index; k > 0; k--){
+  } else {
+    for (k = size - 1 - index; k > 0; k--) {
       this._list[i] = this._list[i = ( i + 1 + len) & this._capacityMask];
     }
     this._list[i] = void 0;
@@ -216,9 +216,9 @@ Denque.prototype.remove = function remove(index, count) {
   if (this._head === this._tail) return void 0;
   var size = this.size();
   var len = this._list.length;
-  if (i >= size || i < -size || count<1) return void 0;
+  if (i >= size || i < -size || count < 1) return void 0;
   if (i < 0) i += size;
-  if (count === 1 || !count){
+  if (count === 1 || !count) {
     removed = new Array(1);
     removed[0] = this.removeOne(i);
     return removed;
@@ -227,42 +227,42 @@ Denque.prototype.remove = function remove(index, count) {
   if (i + count > size) count = size - i;
   var k;
   removed = new Array(count);
-  for(k = 0; k < count; k++){
+  for (k = 0; k < count; k++) {
     removed[k] = this._list[(this._head + i + k) & this._capacityMask];
   }
   i = (this._head + i) & this._capacityMask;
-  if (index + count === size){
+  if (index + count === size) {
     this._tail = (this._tail - count + len) & this._capacityMask;
-    for(k = count; k > 0; k--){
+    for (k = count; k > 0; k--) {
       this._list[i = (i + 1 + len) & this._capacityMask] = void 0;
     }
     return removed;
   }
-  if(index === 0){
+  if (index === 0) {
     this._head = (this._head + count + len) & this._capacityMask;
-    for(k = count - 1; k > 0; k--){
+    for (k = count - 1; k > 0; k--) {
       this._list[i = (i + 1 + len) & this._capacityMask] = void 0;
     }
     return removed;
   }
-  if(index < size / 2){
+  if (index < size / 2) {
     this._head = (this._head + index + count + len) & this._capacityMask;
-    for(k = index; k > 0; k--){
+    for (k = index; k > 0; k--) {
       this.unshift(this._list[i = (i - 1 + len) & this._capacityMask]);
     }
     i = (this._head - 1 + len) & this._capacityMask;
-    while(del_count>0){
+    while (del_count > 0) {
       this._list[i = (i - 1 + len) & this._capacityMask] = void 0;
       del_count--;
     }
-  }else{
+  } else {
     this._tail = i;
     i = (i + count + len) & this._capacityMask;
-    for(k = size - (count + index); k > 0; k--){
+    for (k = size - (count + index); k > 0; k--) {
       this.push(this._list[i++]);
     }
     i = this._tail;
-    while(del_count>0){
+    while (del_count > 0) {
       this._list[i = (i + 1 + len) & this._capacityMask] = void 0;
       del_count--;
     }
@@ -276,7 +276,7 @@ Denque.prototype.remove = function remove(index, count) {
  * Remove number of items from the specified index from the list and/or add new elements.
  * Returns array of removed items or empty array if count == 0.
  * Returns undefined if the list is empty.
- * 
+ *
  * @param index
  * @param count
  * @param {...*} [elements]
@@ -293,40 +293,40 @@ Denque.prototype.splice = function splice(index, count) {
   if (i > size || i < -size) return void 0;
   if (i === size && count != 0) return void 0;
   if (i < 0) i += size;
-  if(arguments.length > 2){
+  if (arguments.length > 2) {
     var k;
     var temp;
     var removed;
     var arg_len = arguments.length;
     var len = this._list.length;
     var arguments_index = 2;
-    if(i < size / 2){
+    if (i < size / 2) {
       temp = new Array(i);
-      for(k = 0; k < i; k++){
+      for (k = 0; k < i; k++) {
         temp[k] = this._list[(this._head + k) & this._capacityMask];
       }
-      if(count === 0){
+      if (count === 0) {
         removed = [];
-        if(i>0){
+        if (i > 0) {
           this._head = (this._head + i + len) & this._capacityMask;
         }
       } else {
         removed = this.remove(i, count);
         this._head = (this._head + i + len) & this._capacityMask;
       }
-      while(arg_len>arguments_index){
+      while (arg_len > arguments_index) {
         this.unshift(arguments[--arg_len]);
       }
-      for(k=i; k > 0; k--){
+      for (k = i; k > 0; k--) {
         this.unshift(temp[k - 1]);
       }
     } else {
       temp = new Array(size - (i + count));
       var leng = temp.length;
-      for(k = 0; k < leng; k++){
+      for (k = 0; k < leng; k++) {
         temp[k] = this._list[(this._head + i + count + k) & this._capacityMask];
       }
-      if(count === 0){
+      if (count === 0) {
         removed = [];
         if(i != size){
           this._tail = (this._head + i + len) & this._capacityMask;
@@ -335,10 +335,10 @@ Denque.prototype.splice = function splice(index, count) {
         removed = this.remove(i, count);
         this._tail = (this._tail - leng + len) & this._capacityMask;
       }
-      while(arguments_index<arg_len){
+      while (arguments_index < arg_len) {
         this.push(arguments[arguments_index++]);
       }
-      for(k = 0; k < leng; k++){
+      for (k = 0; k < leng; k++) {
         this.push(temp[k]);
       }
     }

@@ -20,31 +20,29 @@ while (--l) {
 suite
   .add('denque.remove', function () {
     denque.remove(111, 10);
-
-    denque.push(11)
-    denque.push(11)
-    denque.push(11)
-    denque.push(11)
-    denque.push(11)
-    denque.push(11)
-    denque.push(11)
-    denque.push(11)
-    denque.push(11)
-    denque.push(11)
+    denque.push(11);
+    denque.push(11);
+    denque.push(11);
+    denque.push(11);
+    denque.push(11);
+    denque.push(11);
+    denque.push(11);
+    denque.push(11);
+    denque.push(11);
+    denque.push(11);
   })
   .add('native array splice', function () {
     array.splice(111, 10);
-
-    denque.push(11)
-    denque.push(11)
-    denque.push(11)
-    denque.push(11)
-    denque.push(11)
-    denque.push(11)
-    denque.push(11)
-    denque.push(11)
-    denque.push(11)
-    denque.push(11)
+    denque.push(11);
+    denque.push(11);
+    denque.push(11);
+    denque.push(11);
+    denque.push(11);
+    denque.push(11);
+    denque.push(11);
+    denque.push(11);
+    denque.push(11);
+    denque.push(11);
   })
   .on('cycle', function (e) {
     console.log('' + e.target);
