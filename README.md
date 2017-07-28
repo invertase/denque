@@ -1,7 +1,7 @@
 # DENQUE
 
-[![Coverage Status](https://coveralls.io/repos/github/Salakar/denque/badge.svg?branch=master)](https://coveralls.io/github/Salakar/denque?branch=master)
-[![build](https://travis-ci.org/Salakar/denque.svg)](https://travis-ci.org/Salakar/denque)
+[![Coverage Status](https://coveralls.io/repos/github/invertase/denque/badge.svg?branch=master)](https://coveralls.io/github/invertase/denque?branch=master)
+[![build](https://travis-ci.org/invertase/denque.svg)](https://travis-ci.org/invertase/denque)
 [![npm version](https://img.shields.io/npm/v/denque.svg)](https://www.npmjs.com/package/denque)
 [![License](https://img.shields.io/npm/l/denque.svg)](/LICENSE)
 [![Donate](https://img.shields.io/badge/Donate-Patreon-green.svg)](https://www.patreon.com/invertase)
