@@ -63,7 +63,7 @@ denque.pop(); //3
 
 <hr>
 
-#####`new Denque(Array items)` -> `Denque`
+#### `new Denque(Array items)` -> `Denque`
 
 Creates a double-ended queue from `items`.
 
@@ -76,7 +76,7 @@ denque.pop(); // 4
 <hr>
 
 
-#####`push(item)` -> `int`
+#### `push(item)` -> `int`
 
 Push an item to the back of this queue. Returns the amount of items currently in the queue after the operation.
 
@@ -92,7 +92,7 @@ denque.shift(); // 3
 
 <hr>
 
-#####`unshift(item)` -> `int`
+#### `unshift(item)` -> `int`
 
 Unshift an item to the front of this queue. Returns the amount of items currently in the queue after the operation.
 
@@ -107,7 +107,7 @@ denque.toString(); // "-2,-1,0,1,2,3"
 <hr>
 
 
-#####`pop()` -> `dynamic`
+#### `pop()` -> `dynamic`
 
 Pop off the item at the back of this queue.
 
@@ -128,7 +128,7 @@ denque.pop(); // undefined
 
 <hr>
 
-#####`shift()` -> `dynamic`
+#### `shift()` -> `dynamic`
 
 Shifts off the item at the front of this queue.
 
@@ -147,7 +147,7 @@ denque.shift(); // undefined
 
 <hr>
 
-#####`toArray()` -> `Array`
+#### `toArray()` -> `Array`
 
 Returns the items in the queue as an array. Starting from the item in the front of the queue and ending to the item at the back of the queue.
 
@@ -160,7 +160,7 @@ denque.toArray(); // [0,1,2,3,4]
 
 <hr>
 
-#####`peekBack()` -> `dynamic`
+#### `peekBack()` -> `dynamic`
 
 Returns the item that is at the back of this queue without removing it.
 
@@ -174,7 +174,7 @@ denque.peekBack(); // 4
 
 <hr>
 
-#####`peekFront()` -> `dynamic`
+#### `peekFront()` -> `dynamic`
 
 Returns the item that is at the front of this queue without removing it.
 
@@ -188,7 +188,7 @@ denque.peekFront(); // 1
 
 <hr>
 
-#####`peekAt(int index)` -> `dynamic`
+#### `peekAt(int index)` -> `dynamic`
 
 Returns the item that is at the given `index` of this queue without removing it.
 
@@ -217,7 +217,7 @@ denque.peekAt(-3); // 1
 
 <hr>
 
-#####`remove(int index, int count)` -> `array`
+#### `remove(int index, int count)` -> `array`
 
 Remove number of items from the specified index from the list.
 
@@ -239,7 +239,7 @@ denque1.remove(4, 100); //[5,6,7]
 
 <hr>
 
-#####`removeOne(int index)` -> `dynamic`
+#### `removeOne(int index)` -> `dynamic`
 
 Remove and return the item at the specified index from the list.
 
@@ -258,7 +258,7 @@ denque1.removeOne(1); // 2
 
 <hr>
 
-#####`splice(int index, int count, item1, item2, ...)` -> `array`
+#### `splice(int index, int count, item1, item2, ...)` -> `array`
 
 Native splice implementation.
 
@@ -283,7 +283,7 @@ denque.toArray() // [ 1, 2, 3, 44, 55, 666, 667, 668, 669, 10 ]
 
 <hr>
 
-#####`isEmpty()` -> `boolean`
+#### `isEmpty()` -> `boolean`
 
 Return `true` if this queue is empty, `false` otherwise.
 
@@ -296,7 +296,7 @@ denque.isEmpty(); // false
 
 <hr>
 
-#####`clear()` -> `void`
+#### `clear()` -> `void`
 
 Remove all items from this queue. Does not change the queue's capacity.
 
@@ -311,12 +311,38 @@ denque.toString(); // ""
 
 ## Benchmarks
 
-### 1000 items in queue
+#### Platform info:
+```
+Darwin 16.5.0 x64
+Node.JS 8.1.2
+V8 5.8.283.41
+Intel(R) Core(TM) i7-6820HQ CPU @ 2.70GHz × 8
+```
 
-    denque x 31,015,027 ops/sec ±1.52% (86 runs sampled)
-    double-ended-queue x 21,350,509 ops/sec ±1.21% (86 runs sampled)
+#### 1000 items in queue (3x shift + 3x push ops per 'op')
+ (3x shift + 3x push ops per 'op')
 
-### 2 million items in queue
+    denque x 26,076,776 ops/sec ±0.76% (90 runs sampled)
+    double-ended-queue x 15,347,410 ops/sec ±2.02% (87 runs sampled)
 
-    denque x 28,710,051 ops/sec ±0.95% (87 runs sampled)
-    double-ended-queue x 20,531,490 ops/sec ±1.04% (89 runs sampled)
+#### 2 million items in queue
+
+ (3x shift + 3x push ops per 'op')
+
+    denque x 23,267,668 ops/sec ±0.77% (88 runs sampled)
+    double-ended-queue x 14,990,494 ops/sec ±1.18% (88 runs sampled)
+
+#### Splice
+
+    denque.splice x 288,034 ops/sec ±111.88% (76 runs sampled)
+    native array splice x 6,112 ops/sec ±6.80% (54 runs sampled)
+
+#### Remove
+
+    denque.remove x 1,433,848 ops/sec ±0.54% (89 runs sampled)
+    native array splice x 17,843 ops/sec ±58.22% (10 runs sampled)
+
+#### Remove One
+
+    denque.removeOne x 973,777 ops/sec ±1.19% (84 runs sampled)
+    native array splice x 70,916 ops/sec ±1.66% (84 runs sampled)
