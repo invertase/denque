@@ -329,7 +329,7 @@ Denque.prototype.splice = function splice(index, count) {
       if (count === 0) {
         removed = [];
         if (i != size) {
-          this._tail = (i - 1 + len) & this._capacityMask;
+          this._tail = (this._head + i + len) & this._capacityMask;
         }
       } else {
         removed = this.remove(i, count);
