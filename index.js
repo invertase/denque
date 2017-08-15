@@ -223,7 +223,11 @@ Denque.prototype.remove = function remove(index, count) {
     removed[0] = this.removeOne(i);
     return removed;
   }
-  if (i === 0 && i + count >= size) return this.clear();
+  if (i === 0 && i + count >= size) {
+    removed = this.toArray();
+    this.clear();
+    return removed;
+  }
   if (i + count > size) count = size - i;
   var k;
   removed = new Array(count);
