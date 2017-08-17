@@ -313,36 +313,36 @@ denque.toString(); // ""
 
 #### Platform info:
 ```
-Darwin 16.5.0 x64
-Node.JS 8.1.2
-V8 5.8.283.41
+Darwin 16.7.0 x64
+Node.JS 8.4.0
+V8 6.0.286.52
 Intel(R) Core(TM) i7-6820HQ CPU @ 2.70GHz × 8
 ```
 
 #### 1000 items in queue (3x shift + 3x push ops per 'op')
  (3x shift + 3x push ops per 'op')
 
-    denque x 26,076,776 ops/sec ±0.76% (90 runs sampled)
-    double-ended-queue x 15,347,410 ops/sec ±2.02% (87 runs sampled)
+    denque x 34,031,891 ops/sec ±1.26% (87 runs sampled)
+    double-ended-queue x 14,440,059 ops/sec ±0.64% (90 runs sampled)
 
 #### 2 million items in queue
 
  (3x shift + 3x push ops per 'op')
 
-    denque x 23,267,668 ops/sec ±0.77% (88 runs sampled)
-    double-ended-queue x 14,990,494 ops/sec ±1.18% (88 runs sampled)
+    denque x 34,043,715 ops/sec ±0.88% (88 runs sampled)
+    double-ended-queue x 14,052,408 ops/sec ±0.63% (87 runs sampled)
 
 #### Splice
 
-    denque.splice x 288,034 ops/sec ±111.88% (76 runs sampled)
-    native array splice x 6,112 ops/sec ±6.80% (54 runs sampled)
+    denque.splice x 282,593 ops/sec ±114.85% (76 runs sampled)
+    native array splice x 6,108 ops/sec ±6.69% (56 runs sampled)
 
 #### Remove
 
-    denque.remove x 1,433,848 ops/sec ±0.54% (89 runs sampled)
-    native array splice x 17,843 ops/sec ±58.22% (10 runs sampled)
+    denque.remove x 1,783,850 ops/sec ±0.87% (90 runs sampled)
+    native array splice x 34,909 ops/sec ±135.02% (6 runs sampled)
 
 #### Remove One
 
-    denque.removeOne x 973,777 ops/sec ±1.19% (84 runs sampled)
-    native array splice x 70,916 ops/sec ±1.66% (84 runs sampled)
+    denque.removeOne x 825,331 ops/sec ±0.82% (91 runs sampled)
+    native array splice x 73,955 ops/sec ±1.15% (88 runs sampled)
