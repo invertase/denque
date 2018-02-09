@@ -4,15 +4,10 @@
  * Custom implementation of a double ended queue.
  */
 function Denque(array) {
-  // circular buffer
-  this._list = new Array(4);
-  // bit mask
-  this._capacityMask = 0x3;
-  // next unread item
   this._head = 0;
-  // next empty slot
   this._tail = 0;
-
+  this._capacityMask = 0x3;
+  this._list = new Array(4);
   if (Array.isArray(array)) {
     this._fromArray(array);
   }

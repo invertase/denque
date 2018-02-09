@@ -709,7 +709,7 @@ describe('Denque.prototype.splice', function () {
     a.splice(21, 0, 1, 2, 3, 4, 5, 6);
     b.splice(21, 0, 1, 2, 3, 4, 5, 6);
     assert.deepEqual(a.toArray(), b);
-    assert.deepEqual(a.splice(a.length-1,2), b.splice(b.length-1,2)); //remove
+    assert.deepEqual(a.splice(a.length - 1, 2), b.splice(b.length - 1, 2)); //remove
     assert.deepEqual(a.toArray(), b);
   });
 
@@ -780,18 +780,28 @@ describe('Denque.prototype.splice', function () {
   });
 
   it("Should remove and add items like native splice method to the empty denque", function () {
-    var a = new Denque()
-    assert.deepEqual(a.splice(0, 0, 1), [])
-    assert.deepEqual(a.toArray(), [1])
-    a.clear()
-    assert.deepEqual(a.splice(0, 0, 1, 2, 3, 4, 5), [])
-    assert.deepEqual(a.toArray(), [1, 2, 3, 4, 5])
-    a.clear()
-    assert.deepEqual(a.splice(0, 1, 1, 2), void 0) // try to add and remove together
-    assert.deepEqual(a.toArray(), [1, 2])
+    var a = new Denque();
+    assert.deepEqual(a.splice(0, 0, 1), []);
+    assert.deepEqual(a.toArray(), [1]);
+    a.clear();
+    assert.deepEqual(a.splice(0, 0, 1, 2, 3, 4, 5), []);
+    assert.deepEqual(a.toArray(), [1, 2, 3, 4, 5]);
+    a.clear();
+    assert.deepEqual(a.splice(0, 1, 1, 2), void 0); // try to add and remove together
+    assert.deepEqual(a.toArray(), [1, 2]);
 
-    var b = new Denque([]) // initialized via empty array
-    assert.deepEqual(b.splice(0, 0, 1), [])
+    var b = new Denque([]); // initialized via empty array
+    assert.deepEqual(b.splice(0, 0, 1), []);
     assert.deepEqual(b.toArray(), [1])
-  })
+  });
+
+
+  it("pop should shrink array when mostly empty", function () {
+    var a = new Denque();
+    for (var i = 0; i < 50000; i++) a.push(i);
+    var maskA = a._capacityMask;
+    for (var i = 0; i < 35000; i++) a.pop();
+    var maskB = a._capacityMask;
+    assert(maskA > maskB);
+  });
 });
