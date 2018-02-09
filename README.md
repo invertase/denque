@@ -1,10 +1,11 @@
 # DENQUE
 
+[![Downloads](https://img.shields.io/npm/dm/denque.svg?style=flat-square)](https://www.npmjs.com/package/denque)
+[![npm version](https://img.shields.io/npm/v/denque.svg?style=flat-square)](https://www.npmjs.com/package/denque)
 [![Coverage Status](https://coveralls.io/repos/github/invertase/denque/badge.svg?branch=master)](https://coveralls.io/github/invertase/denque?branch=master)
-[![build](https://travis-ci.org/invertase/denque.svg)](https://travis-ci.org/invertase/denque)
-[![npm version](https://img.shields.io/npm/v/denque.svg)](https://www.npmjs.com/package/denque)
+[![Build](https://travis-ci.org/invertase/denque.svg)](https://travis-ci.org/invertase/denque)
 [![License](https://img.shields.io/npm/l/denque.svg)](/LICENSE)
-[![Donate](https://img.shields.io/badge/Donate-Patreon-green.svg)](https://www.patreon.com/invertase)
+
 
 Extremely fast and lightweight [double-ended queue](http://en.wikipedia.org/wiki/Double-ended_queue) implementation with zero dependencies.
 
@@ -232,10 +233,6 @@ denque.remove(1,2); //[5,6]
 var denque1 = new Denque([1,2,3,4,5,6,7]);
 denque1.remove(4, 100); //[5,6,7]
 ```
-### 100000 items in queue performance
-
-    denque.remove x 649,195 ops/sec ±1.33% (83 runs sampled)
-    native array splice x 54,461 ops/sec ±164.33% (11 runs sampled)
 
 <hr>
 
@@ -251,10 +248,6 @@ denque.removeOne(4); // 5
 denque.removeOne(3); // 4
 denque1.removeOne(1); // 2
 ```
-### 100000 items in queue performance
-
-    denque.removeOne x 487,168 ops/sec ±0.94% (85 runs sampled)
-    native array splice x 39,082 ops/sec ±0.87% (88 runs sampled)
 
 <hr>
 
@@ -276,10 +269,6 @@ denque.splice(3, 3, 44, 55, 66); // [4,5,6]
 denque.splice(5,4, 666,667,668,669); // [ 66, 7, 8, 9 ]
 denque.toArray() // [ 1, 2, 3, 44, 55, 666, 667, 668, 669, 10 ]
 ```
-### 100000 items in queue performance
-
-    denque.splice x 178,198 ops/sec ±8.68% (61 runs sampled)
-    native array splice x 3,639 ops/sec ±4.39% (65 runs sampled)
 
 <hr>
 
@@ -319,7 +308,8 @@ V8 6.2.414.46-node.17
 Intel(R) Core(TM) i7-7700K CPU @ 4.20GHz × 8
 ```
 
-#### 1000 items in queue (3x shift + 3x push ops per 'op')
+#### 1000 items in queue
+
  (3 x shift + 3 x push ops per 'op')
 
     denque x 64,365,425 ops/sec ±0.69% (92 runs sampled)
