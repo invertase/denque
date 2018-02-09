@@ -10,7 +10,7 @@ var suite = new Benchmark.Suite();
 var denque = new Denque();
 var array = []
 
-var l = 5000;
+var l = 100000;
 while (--l) {
   denque.push(l);
   array.push(l);
