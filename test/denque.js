@@ -798,9 +798,13 @@ describe('Denque.prototype.splice', function () {
 
   it("pop should shrink array when mostly empty", function () {
     var a = new Denque();
-    for (var i = 0; i < 50000; i++) a.push(i);
+    for (var i = 0; i < 50000; i++) {
+      a.push(i);
+    }
     var maskA = a._capacityMask;
-    for (var i = 0; i < 35000; i++) a.pop();
+    for (var ii = 0; ii < 35000; ii++) {
+      a.pop();
+    }
     var maskB = a._capacityMask;
     assert(maskA > maskB);
   });
