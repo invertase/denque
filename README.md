@@ -313,36 +313,42 @@ denque.toString(); // ""
 
 #### Platform info:
 ```
-Darwin 16.7.0 x64
-Node.JS 8.4.0
-V8 6.0.286.52
-Intel(R) Core(TM) i7-6820HQ CPU @ 2.70GHz × 8
+Darwin 17.0.0 x64
+Node.JS 9.4.0
+V8 6.2.414.46-node.17
+Intel(R) Core(TM) i7-7700K CPU @ 4.20GHz × 8
 ```
 
 #### 1000 items in queue (3x shift + 3x push ops per 'op')
- (3x shift + 3x push ops per 'op')
+ (3 x shift + 3 x push ops per 'op')
 
-    denque x 34,031,891 ops/sec ±1.26% (87 runs sampled)
-    double-ended-queue x 14,440,059 ops/sec ±0.64% (90 runs sampled)
+    denque x 64,365,425 ops/sec ±0.69% (92 runs sampled)
+    double-ended-queue x 26,646,882 ops/sec ±0.47% (94 runs sampled)
 
 #### 2 million items in queue
 
- (3x shift + 3x push ops per 'op')
+ (3 x shift + 3 x push ops per 'op')
 
-    denque x 34,043,715 ops/sec ±0.88% (88 runs sampled)
-    double-ended-queue x 14,052,408 ops/sec ±0.63% (87 runs sampled)
+    denque x 61,994,249 ops/sec ±0.26% (95 runs sampled)
+    double-ended-queue x 26,363,500 ops/sec ±0.42% (91 runs sampled)
 
 #### Splice
 
-    denque.splice x 282,593 ops/sec ±114.85% (76 runs sampled)
-    native array splice x 6,108 ops/sec ±6.69% (56 runs sampled)
+ (1 x splice per 'op') - initial size of 100,000 items
+
+    denque.splice x 925,749 ops/sec ±22.29% (77 runs sampled)
+    native array splice x 7,777 ops/sec ±8.35% (50 runs sampled)
 
 #### Remove
 
-    denque.remove x 1,783,850 ops/sec ±0.87% (90 runs sampled)
-    native array splice x 34,909 ops/sec ±135.02% (6 runs sampled)
+ (1 x remove + 10 x push per 'op') - initial size of 100,000 items
+
+    denque.remove x 2,635,275 ops/sec ±0.37% (95 runs sampled)
+    native array splice - Fails to complete: "JavaScript heap out of memory"
 
 #### Remove One
 
-    denque.removeOne x 825,331 ops/sec ±0.82% (91 runs sampled)
-    native array splice x 73,955 ops/sec ±1.15% (88 runs sampled)
+ (1 x removeOne + 10 x push per 'op') - initial size of 100,000 items
+
+    denque.removeOne x 1,088,240 ops/sec ±0.21% (93 runs sampled)
+    native array splice x 5,300 ops/sec ±0.41% (96 runs sampled)
