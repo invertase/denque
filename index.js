@@ -104,7 +104,7 @@ Denque.prototype.size = function size() {
  * @param item
  */
 Denque.prototype.unshift = function unshift(item) {
-  if (item === undefined) return this.length;
+  if (item === undefined) return this.size();
   var len = this._list.length;
   this._head = (this._head - 1 + len) & this._capacityMask;
   this._list[this._head] = item;
@@ -133,7 +133,7 @@ Denque.prototype.shift = function shift() {
  * @param item
  */
 Denque.prototype.push = function push(item) {
-  if (item === undefined) return this.length;
+  if (item === undefined) return this.size();
   var tail = this._tail;
   this._list[tail] = item;
   this._tail = (tail + 1) & this._capacityMask;
@@ -288,15 +288,13 @@ Denque.prototype.remove = function remove(index, count) {
  */
 Denque.prototype.splice = function splice(index, count) {
   var i = index;
-  var size = this.size();
   // expect a number or return undefined
   if ((i !== (i | 0))) {
     return void 0;
   }
-  if (this._head === this._tail) return void 0;
-  if (i > size || i < -size) return void 0;
-  if (i === size && count != 0) return void 0;
+  var size = this.size();
   if (i < 0) i += size;
+  if (i > size) return void 0;
   if (arguments.length > 2) {
     var k;
     var temp;
@@ -304,7 +302,7 @@ Denque.prototype.splice = function splice(index, count) {
     var arg_len = arguments.length;
     var len = this._list.length;
     var arguments_index = 2;
-    if (i < size / 2) {
+    if (!size || i < size / 2) {
       temp = new Array(i);
       for (k = 0; k < i; k++) {
         temp[k] = this._list[(this._head + k) & this._capacityMask];

@@ -778,4 +778,20 @@ describe('Denque.prototype.splice', function () {
     assert(a.length === 4);
     assert(a.splice(4, 234) === void 0);
   });
+
+  it("Should remove and add items like native splice method to the empty denque", function () {
+    var a = new Denque()
+    assert.deepEqual(a.splice(0, 0, 1), [])
+    assert.deepEqual(a.toArray(), [1])
+    a.clear()
+    assert.deepEqual(a.splice(0, 0, 1, 2, 3, 4, 5), [])
+    assert.deepEqual(a.toArray(), [1, 2, 3, 4, 5])
+    a.clear()
+    assert.deepEqual(a.splice(0, 1, 1, 2), void 0) // try to add and remove together
+    assert.deepEqual(a.toArray(), [1, 2])
+
+    var b = new Denque([]) // initialized via empty array
+    assert.deepEqual(b.splice(0, 0, 1), [])
+    assert.deepEqual(b.toArray(), [1])
+  })
 });
