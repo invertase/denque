@@ -2,8 +2,8 @@
 
 [![Downloads](https://img.shields.io/npm/dm/denque.svg?style=flat-square)](https://www.npmjs.com/package/denque)
 [![npm version](https://img.shields.io/npm/v/denque.svg?style=flat-square)](https://www.npmjs.com/package/denque)
-[![Coverage Status](https://coveralls.io/repos/github/salakar/denque/badge.svg?branch=master)](https://coveralls.io/github/salakar/denque?branch=master)
-[![Build](https://travis-ci.org/salakar/denque.svg)](https://travis-ci.org/salakar/denque)
+[![Coverage Status](https://coveralls.io/repos/github/Salakar/denque/badge.svg?branch=master)](https://coveralls.io/github/Salakar/denque?branch=master)
+[![Build](https://travis-ci.org/Salakar/denque.svg)](https://travis-ci.org/Salakar/denque)
 [![License](https://img.shields.io/npm/l/denque.svg)](/LICENSE)
 
 
