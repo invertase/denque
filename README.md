@@ -5,6 +5,7 @@
 [![Coverage Status](https://coveralls.io/repos/github/Salakar/denque/badge.svg?branch=master)](https://coveralls.io/github/Salakar/denque?branch=master)
 [![Build](https://travis-ci.org/Salakar/denque.svg)](https://travis-ci.org/Salakar/denque)
 [![License](https://img.shields.io/npm/l/denque.svg)](/LICENSE)
+<a href="https://twitter.com/mikediarmid"><img src="https://img.shields.io/twitter/follow/mikediarmid.svg?style=social&label=Follow" alt="Follow on Twitter"></a>
 
 
 Extremely fast and lightweight [double-ended queue](http://en.wikipedia.org/wiki/Double-ended_queue) implementation with zero dependencies.
