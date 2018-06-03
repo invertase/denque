@@ -18,8 +18,9 @@
     "double-ended-queue"
   ],
   "scripts": {
-    "test": "istanbul cover --report lcov _mocha",
+    "test": "istanbul cover --report lcov _mocha && npm run typescript",
     "coveralls": "cat ./coverage/lcov.info | coveralls",
+    "typescript": "tsc --project ./test/type/tsconfig.json",
     "benchmark_thousand": "node benchmark/thousand",
     "benchmark_2mil": "node benchmark/two_million",
     "benchmark_splice": "node benchmark/splice",
@@ -42,9 +43,10 @@
   "homepage": "https://github.com/Salakar/denque#readme",
   "devDependencies": {
     "benchmark": "^2.1.0",
-    "coveralls": "^2.11.9",
+    "coveralls": "^3.0.1",
     "double-ended-queue": "^2.1.0-0",
     "istanbul": "^0.4.4",
-    "mocha": "^2.5.3"
+    "mocha": "^5.2.0",
+    "typescript": "^2.9.1"
   }
 }
