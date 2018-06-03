@@ -43,10 +43,10 @@
   "homepage": "https://github.com/Salakar/denque#readme",
   "devDependencies": {
     "benchmark": "^2.1.0",
-    "coveralls": "^3.0.1",
+    "coveralls": "^2.13.1",
     "double-ended-queue": "^2.1.0-0",
     "istanbul": "^0.4.4",
-    "mocha": "^5.2.0",
+    "mocha": "^3.0.0",
     "typescript": "^2.9.1"
   }
 }
