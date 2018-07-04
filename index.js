@@ -3,14 +3,20 @@
 /**
  * Custom implementation of a double ended queue.
  */
-function Denque(array) {
+function Denque(opts) {
   this._head = 0;
   this._tail = 0;
-  this._capacityMask = 0x3;
-  this._list = new Array(4);
-  if (Array.isArray(array)) {
-    this._fromArray(array);
+  if (Number.isInteger(opts)) {
+    this._capacityMask = opts + 0x3;
+    this._list = new Array(opts);
+  } else {
+    this._capacityMask = 0x3;
+    this._list = new Array(4);
   }
+  if (Array.isArray(opts)) {
+    this._fromArray(opts);
+  }
+
 }
 
 /**
