@@ -22,6 +22,21 @@ describe('Denque.prototype.constructor', function () {
     assert.deepEqual(b.toArray(), []);
   });
 
+  it("should take integer argument", function () {
+    var a = new Denque(10);
+    var b = new Denque(1.1);
+
+    assert(a._capacityMask === 13);
+    assert(a._list.length === 10);
+    assert(a.size() === 0);
+    assert(a.length === 0);
+
+    assert(b._capacityMask === 3);
+    assert(b._list.length === 4);
+    assert(b.size() === 0);
+    assert(b.length === 0);
+  });
+
   it("should handle a high volume with no out of memory exception", function () {
     this.timeout(20000);
     var denque = new Denque();
