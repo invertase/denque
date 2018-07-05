@@ -30,13 +30,11 @@ describe('Denque.prototype.constructor', function () {
     assert(a._list.length === 10);
     assert(a.size() === 0);
     assert(a.length === 0);
-    assert.deepEqual(a.toArray(), [,,,,,,,,,]);
 
     assert(b._capacityMask === 3);
     assert(b._list.length === 4);
     assert(b.size() === 0);
     assert(b.length === 0);
-    assert.deepEqual(b.toArray(), [,,,]);
   });
 
   it("should handle a high volume with no out of memory exception", function () {
