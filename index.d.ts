@@ -1,24 +1,24 @@
-declare class Denque {
+declare class Denque<T = any> {
   constructor();
-  constructor(array: any[]);
+  constructor(array: T[]);
 
-  push(item: any): number;
-  unshift(item: any): number;
-  pop(): any;
-  removeBack(): any;
-  shift(): any;
-  peekBack(): any;
-  peekFront(): any;
-  peekAt(index: number): any;
-  get(index: number): any;
-  remove(index: number, count: number): any[];
-  removeOne(index: number): any;
-  splice(index: number, count: number, ...item: any[]): any[];
+  push(item: T): number;
+  unshift(item: T): number;
+  pop(): T | undefined;
+  removeBack(): T | undefined;
+  shift(): T | undefined;
+  peekBack(): T | undefined;
+  peekFront(): T | undefined;
+  peekAt(index: number): T | undefined;
+  get(index: number): T | undefined;
+  remove(index: number, count: number): T[];
+  removeOne(index: number): T | undefined;
+  splice(index: number, count: number, ...item: T[]): T[] | undefined;
   isEmpty(): boolean;
   clear(): void;
 
   toString(): string;
-  toArray(): any[];
+  toArray(): T[];
 
   length: number;
 }
