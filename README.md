@@ -58,7 +58,9 @@ Creates an empty double-ended queue with initial capacity of 4.
 
 ```js
 var denque = new Denque();
-denque.push(1, 2, 3);
+denque.push(1);
+denque.push(2);
+denque.push(3);
 denque.shift(); //1
 denque.pop(); //3
 ```
