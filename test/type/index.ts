@@ -12,13 +12,16 @@ queue.toArray();
 queue.peekBack();
 queue.peekFront();
 queue.get(1);
-queue.peekAt(1);
+var entry = queue.peekAt(1);
+if (entry !== undefined) {
+    entry.length;
+}
 queue.remove(1, 1);
 queue.removeOne(1);
 queue.toString();
 
-queue.splice(queue.length, 0, 8, 9, 10);
-queue.splice(3, 3, 44, 55, 66);
+queue.splice(queue.length, 0, "8", "9", "10");
+queue.splice(3, 3, "44", "55", "66");
 
 queue.isEmpty();
 queue.clear();
