@@ -1,12 +1,19 @@
-# DENQUE
+<p align="center">
+  <a href="https://invertase.io">
+    <img src="https://static.invertase.io/assets/invertase-logo-small.png"><br/>
+  </a>
+  <h2 align="center">Denque</h2>
+</p>
 
-[![Downloads](https://img.shields.io/npm/dm/denque.svg?style=flat-square)](https://www.npmjs.com/package/denque)
-[![npm version](https://img.shields.io/npm/v/denque.svg?style=flat-square)](https://www.npmjs.com/package/denque)
-[![Coverage Status](https://coveralls.io/repos/github/Salakar/denque/badge.svg?branch=master)](https://coveralls.io/github/Salakar/denque?branch=master)
-[![Build](https://travis-ci.org/Salakar/denque.svg)](https://travis-ci.org/Salakar/denque)
-[![License](https://img.shields.io/npm/l/denque.svg)](/LICENSE)
-<a href="https://twitter.com/mikediarmid"><img src="https://img.shields.io/twitter/follow/mikediarmid.svg?style=social&label=Follow" alt="Follow on Twitter"></a>
-
+<p align="center">
+  <a href="https://www.npmjs.com/package/denque"><img src="https://img.shields.io/npm/dm/denque.svg?style=flat-square" alt="NPM downloads"></a>
+  <a href="https://www.npmjs.com/package/denque"><img src="https://img.shields.io/npm/v/denque.svg?style=flat-square" alt="NPM version"></a>
+  <a href="https://travis-ci.org/Salakar/denque"><img src="https://travis-ci.org/Salakar/denque.svg" alt="Build version"></a>
+  <a href="https://coveralls.io/github/Salakar/denque?branch=master"><img src="https://coveralls.io/repos/github/Salakar/denque/badge.svg?branch=master" alt="Build version"></a>  
+  <a href="/LICENSE"><img src="https://img.shields.io/npm/l/denque.svg?style=flat-square" alt="License"></a>
+  <a href="https://discord.gg/C9aK28N"><img src="https://img.shields.io/discord/295953187817521152.svg?logo=discord&style=flat-square&colorA=7289da&label=discord" alt="Chat"></a>
+  <a href="https://twitter.com/invertaseio"><img src="https://img.shields.io/twitter/follow/invertaseio.svg?style=social&label=Follow" alt="Follow on Twitter"></a>
+</p>
 
 Extremely fast and lightweight [double-ended queue](http://en.wikipedia.org/wiki/Double-ended_queue) implementation with zero dependencies.
 
