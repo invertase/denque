@@ -17,7 +17,9 @@
     "denque",
     "double-ended-queue"
   ],
+  "files": ["index.js", "index.d.ts"],
   "scripts": {
+    "prepare": "tsc",
     "test": "istanbul cover --report lcov _mocha && npm run typescript",
     "coveralls": "cat ./coverage/lcov.info | coveralls",
     "typescript": "tsc --project ./test/type/tsconfig.json",
