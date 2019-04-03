@@ -29,24 +29,27 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Salakar/denque.git"
-  },
-  "author": {
-    "name": "Mike Diarmid",
-    "email": "mike.diarmid@gmail.com",
-    "url": "http://github.com/Salakar/"
+    "url": "git+https://github.com/invertase/denque.git"
   },
   "license": "Apache-2.0",
-  "bugs": {
-    "url": "https://github.com/Salakar/denque/issues"
+  "author": {
+    "name": "Invertase",
+    "email": "oss@invertase.io",
+    "url": "http://github.com/invertase/"
   },
-  "homepage": "https://github.com/Salakar/denque#readme",
+  "contributors": [
+    "Mike Diarmid (Salakar) <mike@invertase.io>"
+  ],
+  "bugs": {
+    "url": "https://github.com/invertase/denque/issues"
+  },
+  "homepage": "https://github.com/invertase/denque#readme",
   "devDependencies": {
-    "benchmark": "^2.1.0",
-    "coveralls": "^2.13.1",
+    "benchmark": "^2.1.4",
+    "coveralls": "^2.13.3",
     "double-ended-queue": "^2.1.0-0",
-    "istanbul": "^0.4.4",
-    "mocha": "^3.0.0",
-    "typescript": "^2.9.1"
+    "istanbul": "^0.4.5",
+    "mocha": "^3.5.3",
+    "typescript": "^3.4.1"
   }
 }
