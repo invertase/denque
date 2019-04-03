@@ -4,7 +4,7 @@ var assert = require('assert');
 var Denque = require('../');
 
 describe('Denque.prototype.constructor', function () {
-  it("should take no argument", function () {
+  it('should take no argument', function () {
     var a = new Denque();
     assert(a._capacityMask === 3);
     assert(a._list.length === 4);
@@ -12,7 +12,7 @@ describe('Denque.prototype.constructor', function () {
     assert(a.length === 0);
   });
 
-  it("should take array argument", function () {
+  it('should take array argument', function () {
     var a = new Denque([1, 2, 3, 4]);
     var b = new Denque([]);
 
@@ -22,7 +22,7 @@ describe('Denque.prototype.constructor', function () {
     assert.deepEqual(b.toArray(), []);
   });
 
-  it("should handle a high volume with no out of memory exception", function () {
+  it('should handle a high volume with no out of memory exception', function () {
     this.timeout(20000);
     var denque = new Denque();
     var l = 250000;
@@ -74,14 +74,14 @@ describe('Denque.prototype.constructor', function () {
 });
 
 describe('Denque.prototype.toArray', function () {
-  it("should return an array", function () {
+  it('should return an array', function () {
     var a = new Denque([1, 2, 3, 4]);
     assert.deepEqual(a.toArray(), [1, 2, 3, 4]);
   });
 });
 
 describe('Denque.prototype.push', function () {
-  it("Should do nothing if no arguments", function () {
+  it('Should do nothing if no arguments', function () {
     var a = new Denque();
     var before = a.length;
     var ret = a.push();
@@ -90,7 +90,7 @@ describe('Denque.prototype.push', function () {
     assert(ret === 0);
   });
 
-  it("Should add falsey elements (except undefined)", function () {
+  it('Should add falsey elements (except undefined)', function () {
     var a = new Denque();
     // var before = a.length;
     var ret = a.push(0);
@@ -107,7 +107,7 @@ describe('Denque.prototype.push', function () {
     assert.strictEqual(a.get(2), null);
   });
 
-  it("Should add single argument - plenty of capacity", function () {
+  it('Should add single argument - plenty of capacity', function () {
     var a = new Denque([1, 2, 3, 4, 5]);
     assert(a._list.length - a.length > 1);
     var before = a.length;
@@ -118,7 +118,7 @@ describe('Denque.prototype.push', function () {
     assert.deepEqual(a.toArray(), [1, 2, 3, 4, 5, 1]);
   });
 
-  it("Should add single argument - exact capacity", function () {
+  it('Should add single argument - exact capacity', function () {
     var a = new Denque([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]);
     assert(a._list.length - a.length === 1);
     var before = a.length;
@@ -129,7 +129,7 @@ describe('Denque.prototype.push', function () {
     assert.deepEqual(a.toArray(), [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 1]);
   });
 
-  it("Should add single argument - over capacity", function () {
+  it('Should add single argument - over capacity', function () {
     var a = new Denque([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]);
     assert(a._list.length / a.length === 2);
     var before = a.length;
@@ -144,7 +144,7 @@ describe('Denque.prototype.push', function () {
 
 describe('Denque.prototype.unshift', function () {
 
-  it("Should do nothing if no arguments", function () {
+  it('Should do nothing if no arguments', function () {
     var a = new Denque();
     var before = a.length;
     var ret = a.unshift();
@@ -153,7 +153,7 @@ describe('Denque.prototype.unshift', function () {
     assert(ret === 0);
   });
 
-  it("Should unshift falsey elements (except undefined)", function () {
+  it('Should unshift falsey elements (except undefined)', function () {
     var a = new Denque();
     // var before = a.length;
     var ret = a.unshift(0);
@@ -170,7 +170,7 @@ describe('Denque.prototype.unshift', function () {
     assert.strictEqual(a.get(0), null);
   });
 
-  it("Should add single argument - plenty of capacity", function () {
+  it('Should add single argument - plenty of capacity', function () {
     var a = new Denque([1, 2, 3, 4, 5]);
     assert(a._list.length - a.length > 1);
     var before = a.length;
@@ -181,7 +181,7 @@ describe('Denque.prototype.unshift', function () {
     assert.deepEqual(a.toArray(), [1, 1, 2, 3, 4, 5]);
   });
 
-  it("Should add single argument - exact capacity", function () {
+  it('Should add single argument - exact capacity', function () {
     var a = new Denque([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]);
     assert(a._list.length - a.length === 1);
     var before = a.length;
@@ -192,7 +192,7 @@ describe('Denque.prototype.unshift', function () {
     assert.deepEqual(a.toArray(), [1, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]);
   });
 
-  it("Should add single argument - over capacity", function () {
+  it('Should add single argument - over capacity', function () {
     var a = new Denque([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]);
     assert(a._list.length / a.length === 2);
     var before = a.length;
@@ -206,7 +206,7 @@ describe('Denque.prototype.unshift', function () {
 });
 
 describe('Denque.prototype.pop', function () {
-  it("Should return undefined when empty denque", function () {
+  it('Should return undefined when empty denque', function () {
     var a = new Denque();
     assert(a.length === 0);
     assert(a.pop() === void 0);
@@ -214,7 +214,7 @@ describe('Denque.prototype.pop', function () {
     assert(a.length === 0);
   });
 
-  it("Should return the item at the back of the denque", function () {
+  it('Should return the item at the back of the denque', function () {
     var a = new Denque([1, 2, 3, 4, 5, 6, 7, 8, 9]);
     var b = [];
 
@@ -250,7 +250,7 @@ describe('Denque.prototype.pop', function () {
 });
 
 describe('Deque.prototype.shift', function () {
-  it("Should return undefined when empty denque", function () {
+  it('Should return undefined when empty denque', function () {
     var a = new Denque();
     assert(a.length === 0);
     assert(a.shift() === void 0);
@@ -258,7 +258,7 @@ describe('Deque.prototype.shift', function () {
     assert(a.length === 0);
   });
 
-  it("Should return the item at the front of the denque", function () {
+  it('Should return the item at the front of the denque', function () {
     var a = new Denque([1, 2, 3, 4, 5, 6, 7, 8, 9]);
     var b = [];
 
@@ -294,12 +294,12 @@ describe('Deque.prototype.shift', function () {
 });
 
 describe('Denque.prototype.get', function () {
-  it("should return undefined on nonsensical argument", function () {
+  it('should return undefined on nonsensical argument', function () {
     var a = new Denque([1, 2, 3, 4]);
     assert(a.get(-5) === void 0);
     assert(a.get(-100) === void 0);
     assert(a.get(void 0) === void 0);
-    assert(a.get("1") === void 0);
+    assert(a.get('1') === void 0);
     assert(a.get(NaN) === void 0);
     assert(a.get(Infinity) === void 0);
     assert(a.get(-Infinity) === void 0);
@@ -307,7 +307,7 @@ describe('Denque.prototype.get', function () {
     assert(a.get(4) === void 0);
   });
 
-  it("should support positive indexing", function () {
+  it('should support positive indexing', function () {
     var a = new Denque([1, 2, 3, 4]);
     assert(a.get(0) === 1);
     assert(a.get(1) === 2);
@@ -315,7 +315,7 @@ describe('Denque.prototype.get', function () {
     assert(a.get(3) === 4);
   });
 
-  it("should support negative indexing", function () {
+  it('should support negative indexing', function () {
     var a = new Denque([1, 2, 3, 4]);
     assert(a.get(-1) === 4);
     assert(a.get(-2) === 3);
@@ -325,19 +325,19 @@ describe('Denque.prototype.get', function () {
 });
 
 describe('Denque.prototype.isEmpty', function () {
-  it("should return true on empty denque", function () {
+  it('should return true on empty denque', function () {
     var a = new Denque();
     assert(a.isEmpty());
   });
 
-  it("should return false on denque with items", function () {
+  it('should return false on denque with items', function () {
     var a = new Denque([1]);
     assert(!a.isEmpty());
   });
 });
 
 describe('Denque.prototype.peekFront', function () {
-  it("Should return undefined when queue is empty", function () {
+  it('Should return undefined when queue is empty', function () {
     var a = new Denque();
     assert(a.length === 0);
     assert(a.peekFront() === void 0);
@@ -345,7 +345,7 @@ describe('Denque.prototype.peekFront', function () {
     assert(a.length === 0);
   });
 
-  it("should return the item at the front of the denque", function () {
+  it('should return the item at the front of the denque', function () {
     var a = new Denque([1, 2, 3, 4, 5, 6, 7, 8, 9]);
     assert(a.peekFront() === 1);
 
@@ -359,7 +359,7 @@ describe('Denque.prototype.peekFront', function () {
 });
 
 describe('Denque.prototype.peekBack', function () {
-  it("Should return undefined when queue is empty", function () {
+  it('Should return undefined when queue is empty', function () {
     var a = new Denque();
     assert(a.length === 0);
     assert(a.peekBack() === void 0);
@@ -367,7 +367,7 @@ describe('Denque.prototype.peekBack', function () {
     assert(a.length === 0);
   });
 
-  it("should return the item at the back of the denque", function () {
+  it('should return the item at the back of the denque', function () {
     var a = new Denque([1, 2, 3, 4, 5, 6, 7, 8, 9]);
     assert(a.peekBack() === 9);
 
@@ -382,7 +382,7 @@ describe('Denque.prototype.peekBack', function () {
 
 
 describe('Denque.prototype.clear', function () {
-  it("should clear the denque", function () {
+  it('should clear the denque', function () {
     var a = new Denque([1, 2, 3, 4]);
     assert(!a.isEmpty());
     a.clear();
@@ -392,14 +392,14 @@ describe('Denque.prototype.clear', function () {
 
 
 describe('Denque.prototype.removeOne', function () {
-  it("Should return undefined when empty denque", function () {
+  it('Should return undefined when empty denque', function () {
     var a = new Denque();
     assert(a.length === 0);
     assert(a.removeOne(1) === void 0);
     assert(a.length === 0);
   });
 
-  it("Should return undefined when index is invalid", function () {
+  it('Should return undefined when index is invalid', function () {
     var a = new Denque();
     var b = new Denque();
     b.push('foobar');
@@ -416,7 +416,7 @@ describe('Denque.prototype.removeOne', function () {
 });
 
 describe('Denque.prototype.remove', function () {
-  it("Should return undefined when empty denque", function () {
+  it('Should return undefined when empty denque', function () {
     var a = new Denque();
     assert(a.length === 0);
     assert(a.remove(1) === void 0);
@@ -424,7 +424,17 @@ describe('Denque.prototype.remove', function () {
     assert(a.length === 0);
   });
 
-  it("Should return undefined if index or count invalid", function () {
+  it('remove from the end of the queue if a negative index is provided', function () {
+    var q = new Denque();
+    q.push(1); // 1
+    q.push(2); // 2
+    q.push(3); // 3
+    assert(q.length === 3);
+    assert.deepEqual(q.remove(-2, 2), [2, 3]); // [ 2, 3 ]
+    assert(q.length === 1);
+  });
+
+  it('Should return undefined if index or count invalid', function () {
     var a = new Denque();
     var b = new Denque();
     b.push('foobar');
@@ -439,7 +449,7 @@ describe('Denque.prototype.remove', function () {
     assert(a.length === 0);
   });
 
-  it("Should return the item at the front of the denque", function () {
+  it('Should return the item at the front of the denque', function () {
     var a = new Denque([1, 2, 3, 4, 5, 6, 7, 8, 9]);
     var b = [];
     b.push(1, 2, 3, 4, 5, 6, 7, 8, 9);
@@ -470,7 +480,7 @@ describe('Denque.prototype.remove', function () {
     assert.deepEqual(a.toArray(), b);
   });
 
-  it("Should return the item at the back of the denque", function () {
+  it('Should return the item at the back of the denque', function () {
     var a = new Denque([1, 2, 3, 4, 5, 6, 7, 8, 9]);
     var b = [];
 
@@ -500,7 +510,7 @@ describe('Denque.prototype.remove', function () {
     assert.deepEqual(a.toArray(), b);
   });
 
-  it("Should return the item somewhere in the middle of the denque", function () {
+  it('Should return the item somewhere in the middle of the denque', function () {
     var a = new Denque([1, 2, 3, 4, 5, 6, 7, 8, 9]);
     var b = [];
     b.push(1, 2, 3, 4, 5, 6, 7, 8, 9);
@@ -533,7 +543,7 @@ describe('Denque.prototype.remove', function () {
     assert.deepEqual(a.toArray(), b);
   });
 
-  it("Should remove a number of items at the front of the denque", function () {
+  it('Should remove a number of items at the front of the denque', function () {
     var a = new Denque([1, 2, 3, 4, 5, 6, 7, 8, 9]);
     var b = [];
     b.push(1, 2, 3, 4, 5, 6, 7, 8, 9);
@@ -564,7 +574,7 @@ describe('Denque.prototype.remove', function () {
     assert.deepEqual(a.toArray(), b);
   });
 
-  it("Should remove a number of items at the back of the denque", function () {
+  it('Should remove a number of items at the back of the denque', function () {
     var a = new Denque([1, 2, 3, 4, 5, 6, 7, 8, 9]);
     var b = [];
     b.push(1, 2, 3, 4, 5, 6, 7, 8, 9);
@@ -595,7 +605,7 @@ describe('Denque.prototype.remove', function () {
     assert.deepEqual(a.toArray(), b);
   });
 
-  it("Should remove a number of items somewhere in the middle of the denque", function () {
+  it('Should remove a number of items somewhere in the middle of the denque', function () {
     var a = new Denque([1, 2, 3, 4, 5, 6, 7, 8, 9]);
     var b = [];
     b.push(1, 2, 3, 4, 5, 6, 7, 8, 9);
@@ -627,7 +637,7 @@ describe('Denque.prototype.remove', function () {
     assert.deepEqual(a.toArray(), b);
   });
 
-  it("Should clear denque", function () {
+  it('Should clear denque', function () {
     var a = new Denque([1, 2, 3, 4, 5, 6, 7, 8, 9]);
     var b = [];
 
@@ -639,7 +649,7 @@ describe('Denque.prototype.remove', function () {
 });
 
 describe('Denque.prototype.splice', function () {
-  it("Should remove and add items like native splice method at the front of denque", function () {
+  it('Should remove and add items like native splice method at the front of denque', function () {
     var a = new Denque([1, 2, 3, 4, 5, 6, 7, 8, 9]);
     var b = [];
     b.push(1, 2, 3, 4, 5, 6, 7, 8, 9);
@@ -673,7 +683,7 @@ describe('Denque.prototype.splice', function () {
     assert.deepEqual(a.toArray(), b);
   });
 
-  it("Should remove and add items like native splice method at the end of denque", function () {
+  it('Should remove and add items like native splice method at the end of denque', function () {
     var a = new Denque([1, 2, 3, 4, 5, 6, 7, 8, 9]);
     var b = [];
     b.push(1, 2, 3, 4, 5, 6, 7, 8, 9);
@@ -713,7 +723,7 @@ describe('Denque.prototype.splice', function () {
     assert.deepEqual(a.toArray(), b);
   });
 
-  it("Should remove and add items like native splice method somewhere in the middle of denque", function () {
+  it('Should remove and add items like native splice method somewhere in the middle of denque', function () {
     var a = new Denque([1, 2, 3, 4, 5, 6, 7, 8, 9]);
     var b = [];
     b.push(1, 2, 3, 4, 5, 6, 7, 8, 9);
@@ -749,7 +759,7 @@ describe('Denque.prototype.splice', function () {
     assert.deepEqual(a.toArray(), b);
   });
 
-  it("Should return undefined when index or count is invalid", function () {
+  it('Should return undefined when index or count is invalid', function () {
     var a = new Denque();
     var b = new Denque();
     b.push('foobar');
@@ -763,13 +773,13 @@ describe('Denque.prototype.splice', function () {
     assert(a.length === 0);
   });
 
-  it("Should return undefined when the queue is empty", function () {
+  it('Should return undefined when the queue is empty', function () {
     var a = new Denque();
     assert(a.length === 0);
     assert(a.splice(1, 0) === void 0);
   });
 
-  it("Should return undefined when trying to remove further than current size", function () {
+  it('Should return undefined when trying to remove further than current size', function () {
     var a = new Denque();
     a.push('foobar');
     a.push('foobar1');
@@ -779,7 +789,7 @@ describe('Denque.prototype.splice', function () {
     assert(a.splice(4, 234) === void 0);
   });
 
-  it("Should remove and add items like native splice method to the empty denque", function () {
+  it('Should remove and add items like native splice method to the empty denque', function () {
     var a = new Denque();
     assert.deepEqual(a.splice(0, 0, 1), []);
     assert.deepEqual(a.toArray(), [1]);
@@ -796,7 +806,7 @@ describe('Denque.prototype.splice', function () {
   });
 
 
-  it("pop should shrink array when mostly empty", function () {
+  it('pop should shrink array when mostly empty', function () {
     var a = new Denque();
     for (var i = 0; i < 50000; i++) {
       a.push(i);

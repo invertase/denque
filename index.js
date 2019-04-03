@@ -244,7 +244,7 @@ Denque.prototype.remove = function remove(index, count) {
     }
     return removed;
   }
-  if (index < size / 2) {
+  if (i < size / 2) {
     this._head = (this._head + index + count + len) & this._capacityMask;
     for (k = index; k > 0; k--) {
       this.unshift(this._list[i = (i - 1 + len) & this._capacityMask]);
@@ -254,6 +254,7 @@ Denque.prototype.remove = function remove(index, count) {
       this._list[i = (i - 1 + len) & this._capacityMask] = void 0;
       del_count--;
     }
+    if (index < 0) this._tail = i;
   } else {
     this._tail = i;
     i = (i + count + len) & this._capacityMask;
