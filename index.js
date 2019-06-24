@@ -41,7 +41,7 @@ Denque.prototype.peekAt = function peekAt(index) {
 };
 
 /**
- * Alias for peakAt()
+ * Alias for peekAt()
  * @param i
  * @returns {*}
  */
