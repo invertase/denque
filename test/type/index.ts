@@ -3,6 +3,7 @@ import Denque = require("../../");
 
 const queue = new Denque(["my", "super", "array"]);
 new Denque(); // also work
+new Denque<number>([1, 2, 3], { capacity: 3 });
 
 queue.push("awesome");
 queue.unshift("typescript");
