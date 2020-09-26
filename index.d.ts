@@ -25,7 +25,7 @@ declare class Denque<T = any> {
 }
 
 interface IDenqueOptions {
-  capacity: number
+  capacity?: number
 }
 
 export = Denque;
