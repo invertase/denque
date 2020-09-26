@@ -136,15 +136,12 @@ Denque.prototype.push = function push(item) {
   var tail = this._tail;
   this._list[tail] = item;
   this._tail = (tail + 1) & this._capacityMask;
-
   if (this._tail === this._head) {
     this._growArray();
   }
-
   if (this.size() > this._capacity) {
     this.shift();
   }
-
   if (this._head < this._tail) return this._tail - this._head;
   else return this._capacityMask + 1 - (this._head - this._tail);
 };
