@@ -3,9 +3,12 @@
 /**
  * Custom implementation of a double ended queue.
  */
-function Denque(array) {
+function Denque(array, options) {
+  var options = options || {};
+
   this._head = 0;
   this._tail = 0;
+  this._capacity = options.capacity;
   this._capacityMask = 0x3;
   this._list = new Array(4);
   if (Array.isArray(array)) {
@@ -104,6 +107,7 @@ Denque.prototype.unshift = function unshift(item) {
   this._head = (this._head - 1 + len) & this._capacityMask;
   this._list[this._head] = item;
   if (this._tail === this._head) this._growArray();
+  if (this._capacity && this.size() > this._capacity) this.pop();
   if (this._head < this._tail) return this._tail - this._head;
   else return this._capacityMask + 1 - (this._head - this._tail);
 };
@@ -135,7 +139,9 @@ Denque.prototype.push = function push(item) {
   if (this._tail === this._head) {
     this._growArray();
   }
-
+  if (this._capacity && this.size() > this._capacity) {
+    this.shift();
+  }
   if (this._head < this._tail) return this._tail - this._head;
   else return this._capacityMask + 1 - (this._head - this._tail);
 };

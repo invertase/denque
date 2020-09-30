@@ -1,6 +1,7 @@
 declare class Denque<T = any> {
   constructor();
   constructor(array: T[]);
+  constructor(array: T[], options: IDenqueOptions);
 
   push(item: T): number;
   unshift(item: T): number;
@@ -21,6 +22,10 @@ declare class Denque<T = any> {
   toArray(): T[];
 
   length: number;
+}
+
+interface IDenqueOptions {
+  capacity?: number
 }
 
 export = Denque;

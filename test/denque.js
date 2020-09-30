@@ -140,6 +140,16 @@ describe('Denque.prototype.push', function () {
     assert.deepEqual(a.toArray(), [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 1]);
   });
 
+  it('should respect capacity', function () {
+    var a = new Denque([1, 2, 3], { capacity: 3 });
+    a.push(4);
+
+    assert.equal(a.size(), 3);
+    assert.equal(a.peekAt(0), 2);
+    assert.equal(a.peekAt(1), 3);
+    assert.equal(a.peekAt(2), 4);
+  });
+
 });
 
 describe('Denque.prototype.unshift', function () {
@@ -201,6 +211,16 @@ describe('Denque.prototype.unshift', function () {
     assert(a.length === ret);
     assert(ret === 17);
     assert.deepEqual(a.toArray(), [1, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]);
+  });
+
+  it('should respect capacity', function () {
+    var a = new Denque([1, 2, 3], { capacity: 3 });
+    a.unshift(0);
+
+    assert.equal(a.size(), 3);
+    assert.equal(a.peekAt(0), 0);
+    assert.equal(a.peekAt(1), 1);
+    assert.equal(a.peekAt(2), 2);
   });
 
 });
