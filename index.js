@@ -426,7 +426,7 @@ Denque.prototype._growArray = function _growArray() {
   // head is at 0 and array is now full, safe to extend
   this._tail = this._list.length;
 
-  this._list.length *= 2;
+  this._list.length <<= 1;
   this._capacityMask = (this._capacityMask << 1) | 1;
 };
 
