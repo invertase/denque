@@ -1,0 +1,99 @@
+---
+title: Denque
+description: "The fastest javascript implementation of a double-ended queue. Used by the official Redis, MongoDB, MariaDB & MySQL libraries for Node.js and many other libraries."
+---
+
+# Overview
+
+Denque is a well tested, extremely fast and lightweight [double-ended queue](http://en.wikipedia.org/wiki/Double-ended_queue)
+implementation with zero dependencies and includes TypeScript types.
+
+Double-ended queues can also be used as a:
+
+- [Stack](http://en.wikipedia.org/wiki/Stack_\(abstract_data_type\))
+- [Queue](http://en.wikipedia.org/wiki/Queue_\(data_structure\))
+
+This implementation is currently the fastest available, even faster than `double-ended-queue`, see the [benchmarks](/benchmarks).
+
+Every queue operation is done at a constant `O(1)` - including random access from `.peekAt(index)`.
+
+**Works on all node versions >= v0.10**
+
+## Quick Start
+
+Install the package:
+
+<Tabs
+  defaultValue="npm"
+  values={[
+    {label: 'NPM', value: 'npm'},
+    {label: 'Yarn', value: 'yarn'},
+  ]}>
+    <TabItem value="npm">
+    ```bash
+    npm install denque
+    ```
+    </TabItem>
+    <TabItem value="yarn">
+    ```bash
+    yarn add denque
+    ```
+    </TabItem>
+</Tabs>
+
+Create and consume a queue:
+
+<Tabs
+  defaultValue="js"
+  values={[
+    {label: 'JS', value: 'js'},
+    {label: 'TS', value: 'ts'},
+  ]}>
+    <TabItem value="js">
+    ```js
+    const Denque = require("denque");
+
+    const denque = new Denque([1, 2, 3, 4]);
+    denque.shift(); // 1
+    denque.pop(); // 4
+    ```
+    </TabItem>
+    <TabItem value="ts">
+    ```ts
+    import Denque from 'denque';
+
+    const denque = new Denque([1, 2, 3, 4]);
+    denque.shift(); // 1
+    denque.pop(); // 4
+    ```
+    </TabItem>
+</Tabs>
+
+
+See the [API reference documentation](/api) for more examples.
+
+
+---
+
+## Who's using it?
+
+ - [Kafka Node.js client](https://www.npmjs.com/package/kafka-node)
+ - [MariaDB Node.js client](https://www.npmjs.com/package/mariadb)
+ - [MongoDB Node.js client](https://www.npmjs.com/package/mongodb)
+ - [MySQL Node.js client](https://www.npmjs.com/package/mysql2)
+ - [Redis Node.js clients](https://www.npmjs.com/package/redis)
+
+... and [many more](https://www.npmjs.com/browse/depended/denque).
+
+---
+
+<p align="center">
+  <p align="center">
+    <a href="https://invertase.io/?utm_source=readme&utm_medium=footer&utm_campaign=denque">
+      <img width="75px" align="center" src="https://static.invertase.io/assets/invertase/invertase-rounded-avatar.png"/>
+    </a>
+  </p>
+  <p align="center">
+    Built and maintained by <a href="https://invertase.io/?utm_source=readme&utm_medium=footer&utm_campaign=denque">Invertase</a>.
+  </p>
+</p>
