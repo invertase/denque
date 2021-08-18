@@ -5,8 +5,8 @@
 <p align="center">
   <a href="https://www.npmjs.com/package/denque"><img src="https://img.shields.io/npm/dm/denque.svg?style=flat-square" alt="NPM downloads"></a>
   <a href="https://www.npmjs.com/package/denque"><img src="https://img.shields.io/npm/v/denque.svg?style=flat-square" alt="NPM version"></a>
-  <a href="https://travis-ci.org/Salakar/denque"><img src="https://travis-ci.org/invertase/denque.svg" alt="Build version"></a>
-  <a href="https://coveralls.io/github/invertase/denque?branch=master"><img src="https://coveralls.io/repos/github/invertase/denque/badge.svg?branch=master" alt="Build version"></a>
+  <a href="https://github.com/invertase/denque/actions/workflows/testing.yam"><img src="https://github.com/invertase/denque/actions/workflows/testing.yaml/badge.svg" alt="Tests status"></a>
+  <a href="https://codecov.io/gh/invertase/denque"><img src="https://codecov.io/gh/invertase/denque/branch/master/graph/badge.svg?token=rn91iI4bSe" alt="Coverage"></a>
   <a href="/LICENSE"><img src="https://img.shields.io/npm/l/denque.svg?style=flat-square" alt="License"></a>
   <a href="https://twitter.com/invertaseio"><img src="https://img.shields.io/twitter/follow/invertaseio.svg?style=social&label=Follow" alt="Follow on Twitter"></a>
 </p>
