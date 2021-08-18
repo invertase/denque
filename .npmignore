@@ -12,3 +12,6 @@ coverage
 test
 .travis.yml
 .gitignore
+docs
+docs.json
+.github

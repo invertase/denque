@@ -1,0 +1,31 @@
+name: Testing
+
+on:
+  push:
+    branches:
+      - "**"
+
+jobs:
+  nodejs:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node: [ "0.12","4","5","6","8","10","11","12","14","16" ]
+    name: node.js_${{ matrix.node }}_test
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup node
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node }}
+      - name: NPM install
+        run: npm install
+      - name: Run tests
+        run: npm run test
+      - name: Submit coverage
+        run: ./node_modules/.bin/codecov
+        # Only submit coverage on latest node version since coveralls
+        # does not run pre node 8.
+        if: matrix.node == '16'
+        env:
+          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}

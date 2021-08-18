@@ -46,7 +46,7 @@
   "homepage": "https://docs.page/invertase/denque",
   "devDependencies": {
     "benchmark": "^2.1.4",
-    "coveralls": "^2.13.3",
+    "codecov": "^3.8.3",
     "double-ended-queue": "^2.1.0-0",
     "istanbul": "^0.4.5",
     "mocha": "^3.5.3",
