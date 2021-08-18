@@ -1,17 +1,13 @@
 <p align="center">
-  <a href="https://invertase.io">
-    <img src="https://static.invertase.io/assets/invertase-logo-small.png"><br/>
-  </a>
-  <h2 align="center">Denque</h2>
+  <h1 align="center">Denque</h1>
 </p>
 
 <p align="center">
   <a href="https://www.npmjs.com/package/denque"><img src="https://img.shields.io/npm/dm/denque.svg?style=flat-square" alt="NPM downloads"></a>
   <a href="https://www.npmjs.com/package/denque"><img src="https://img.shields.io/npm/v/denque.svg?style=flat-square" alt="NPM version"></a>
   <a href="https://travis-ci.org/Salakar/denque"><img src="https://travis-ci.org/invertase/denque.svg" alt="Build version"></a>
-  <a href="https://coveralls.io/github/invertase/denque?branch=master"><img src="https://coveralls.io/repos/github/invertase/denque/badge.svg?branch=master" alt="Build version"></a>  
+  <a href="https://coveralls.io/github/invertase/denque?branch=master"><img src="https://coveralls.io/repos/github/invertase/denque/badge.svg?branch=master" alt="Build version"></a>
   <a href="/LICENSE"><img src="https://img.shields.io/npm/l/denque.svg?style=flat-square" alt="License"></a>
-  <a href="https://discord.gg/C9aK28N"><img src="https://img.shields.io/discord/295953187817521152.svg?logo=discord&style=flat-square&colorA=7289da&label=discord" alt="Chat"></a>
   <a href="https://twitter.com/invertaseio"><img src="https://img.shields.io/twitter/follow/invertaseio.svg?style=social&label=Follow" alt="Follow on Twitter"></a>
 </p>
 
@@ -28,7 +24,7 @@ Every queue operation is done at a constant `O(1)` - including random access fro
 
 **Works on all node versions >= v0.10**
 
-# Quick Start
+## Quick Start
 
     npm install denque
 
@@ -41,7 +37,7 @@ denque.pop(); // 4
 ```
 
 
-# API
+## API
 
 - [`new Denque()`](#new-denque---denque)
 - [`new Denque(Array items)`](#new-denquearray-items---denque)
@@ -352,11 +348,20 @@ Intel(R) Core(TM) i7-7700K CPU @ 4.20GHz × 8
 
     denque.removeOne x 1,088,240 ops/sec ±0.21% (93 runs sampled)
     native array splice x 5,300 ops/sec ±0.41% (96 runs sampled)
-    
+
 ---
 
-Built and maintained with 💛 by [Invertase](https://invertase.io).
+## License
 
-- [💼 Hire Us](https://invertase.io/hire-us)
-- [☕️ Sponsor Us](https://opencollective.com/react-native-firebase)
-- [👩‍💻 Work With Us](https://invertase.io/jobs)
+- See [LICENSE](/LICENSE)
+
+---
+
+<p align="center">
+  <a href="https://invertase.io/?utm_source=readme&utm_medium=footer&utm_campaign=docs.page">
+    <img width="75px" src="https://static.invertase.io/assets/invertase/invertase-rounded-avatar.png">
+  </a>
+  <p align="center">
+    Built and maintained by <a href="https://invertase.io/?utm_source=readme&utm_medium=footer&utm_campaign=denque">Invertase</a>.
+  </p>
+</p>
