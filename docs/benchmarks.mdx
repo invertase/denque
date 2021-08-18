@@ -8,10 +8,10 @@ description: Benchmarks for Denque.
 Benchmarks have been tested against the following environment:
 
 ```
-Darwin 17.0.0 x64
-Node.JS 9.4.0
-V8 6.2.414.46-node.17
-Intel(R) Core(TM) i7-7700K CPU @ 4.20GHz × 8
+Darwin 20.6.0 x64
+Node.JS 14.17.1
+V8 8.4.371.23-node.67
+Intel(R) Core(TM) i7-8700B CPU @ 3.20GHz × 12
 ```
 
 ### 1000 items in queue
@@ -19,8 +19,8 @@ Intel(R) Core(TM) i7-7700K CPU @ 4.20GHz × 8
 ```
  (3 x shift + 3 x push ops per 'op')
 
-    denque x 64,365,425 ops/sec ±0.69% (92 runs sampled)
-    double-ended-queue x 26,646,882 ops/sec ±0.47% (94 runs sampled)
+    denque x 67,659,118 ops/sec ±0.49% (94 runs sampled)
+    double-ended-queue x 21,137,935 ops/sec ±0.51% (94 runs sampled)
 ```
 
 ### 2 million items in queue
@@ -28,8 +28,8 @@ Intel(R) Core(TM) i7-7700K CPU @ 4.20GHz × 8
 ```
  (3 x shift + 3 x push ops per 'op')
 
-    denque x 61,994,249 ops/sec ±0.26% (95 runs sampled)
-    double-ended-queue x 26,363,500 ops/sec ±0.42% (91 runs sampled)
+    denque x 65,145,726 ops/sec ±0.66% (90 runs sampled)
+    double-ended-queue x 21,171,775 ops/sec ±0.39% (96 runs sampled)
 ```
 
 ### Splice
@@ -37,8 +37,8 @@ Intel(R) Core(TM) i7-7700K CPU @ 4.20GHz × 8
 ```
  (1 x splice per 'op') - initial size of 100,000 items
 
-    denque.splice x 925,749 ops/sec ±22.29% (77 runs sampled)
-    native array splice x 7,777 ops/sec ±8.35% (50 runs sampled)
+    denque.splice x 623,905 ops/sec ±28.11% (71 runs sampled)
+    native array splice x 10,837 ops/sec ±41.27% (37 runs sampled)
 ```
 
 ### Remove
@@ -46,7 +46,7 @@ Intel(R) Core(TM) i7-7700K CPU @ 4.20GHz × 8
 ```
  (1 x remove + 10 x push per 'op') - initial size of 100,000 items
 
-    denque.remove x 2,635,275 ops/sec ±0.37% (95 runs sampled)
+    denque.remove x 2,303 ops/sec ±34.14% (6 runs sampled)
     native array splice - Fails to complete: "JavaScript heap out of memory"
 ```
 
@@ -55,6 +55,6 @@ Intel(R) Core(TM) i7-7700K CPU @ 4.20GHz × 8
 ```
  (1 x removeOne + 10 x push per 'op') - initial size of 100,000 items
 
-    denque.removeOne x 1,088,240 ops/sec ±0.21% (93 runs sampled)
-    native array splice x 5,300 ops/sec ±0.41% (96 runs sampled)
+    denque.removeOne x 863,146 ops/sec ±0.28% (94 runs sampled)
+    native array splice x 2,802 ops/sec ±1.73% (91 runs sampled)
 ```
