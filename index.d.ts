@@ -33,6 +33,8 @@ declare class Denque<T = any> {
 
   clear(): void;
 
+  size(): void;
+
   toString(): string;
 
   toArray(): T[];
