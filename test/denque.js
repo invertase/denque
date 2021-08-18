@@ -90,6 +90,13 @@ describe('Denque.prototype.push', function () {
     assert(ret === 0);
   });
 
+
+  it('Should accept undefined values', function () {
+    var a = new Denque();
+    a.push(undefined);
+    assert(a.length === 1);
+  });
+
   it('Should add falsey elements (except undefined)', function () {
     var a = new Denque();
     // var before = a.length;
@@ -161,6 +168,12 @@ describe('Denque.prototype.unshift', function () {
     assert(ret === before);
     assert(a.length === ret);
     assert(ret === 0);
+  });
+
+  it('Should accept undefined values', function () {
+    var a = new Denque();
+    a.unshift(undefined);
+    assert(a.length === 1);
   });
 
   it('Should unshift falsey elements (except undefined)', function () {

@@ -102,7 +102,7 @@ Denque.prototype.size = function size() {
  * @param item
  */
 Denque.prototype.unshift = function unshift(item) {
-  if (item === undefined) return this.size();
+  if (arguments.length === 0) return this.size();
   var len = this._list.length;
   this._head = (this._head - 1 + len) & this._capacityMask;
   this._list[this._head] = item;
@@ -132,7 +132,7 @@ Denque.prototype.shift = function shift() {
  * @param item
  */
 Denque.prototype.push = function push(item) {
-  if (item === undefined) return this.size();
+  if (arguments.length === 0) return this.size();
   var tail = this._tail;
   this._list[tail] = item;
   this._tail = (tail + 1) & this._capacityMask;
