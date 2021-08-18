@@ -17,7 +17,7 @@ function Denque(array, options) {
 }
 
 /**
- * -------------
+ * --------------
  *  PUBLIC API
  * -------------
  */
@@ -190,7 +190,7 @@ Denque.prototype.removeOne = function removeOne(index) {
     this._head = (this._head + 1 + len) & this._capacityMask;
   } else {
     for (k = size - 1 - index; k > 0; k--) {
-      this._list[i] = this._list[i = ( i + 1 + len) & this._capacityMask];
+      this._list[i] = this._list[i = (i + 1 + len) & this._capacityMask];
     }
     this._list[i] = void 0;
     this._tail = (this._tail - 1 + len) & this._capacityMask;
