@@ -68,7 +68,7 @@ See the [API reference documentation](https://docs.page/invertase/denque/api) fo
 ---
 
 <p align="center">
-  <a href="https://invertase.io/?utm_source=readme&utm_medium=footer&utm_campaign=docs.page">
+  <a href="https://invertase.io/?utm_source=readme&utm_medium=footer&utm_campaign=denque">
     <img width="75px" src="https://static.invertase.io/assets/invertase/invertase-rounded-avatar.png">
   </a>
   <p align="center">
