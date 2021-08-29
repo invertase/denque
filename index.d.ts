@@ -33,7 +33,7 @@ declare class Denque<T = any> {
 
   clear(): void;
 
-  size(): void;
+  size(): number;
 
   toString(): string;
 
