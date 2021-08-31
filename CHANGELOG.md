@@ -1,3 +1,7 @@
+## 2.0.1
+
+ - fix(types): incorrect return type on `size()`
+
 ## 2.0.0
 
  - fix!: `push` & `unshift` now accept `undefined` values to match behaviour of `Array` (fixes #25) (#35)
