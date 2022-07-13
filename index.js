@@ -400,17 +400,18 @@ Denque.prototype._fromArray = function _fromArray(array) {
  * @private
  */
 Denque.prototype._copyArray = function _copyArray(fullCopy, size) {
-  const src = this._list;
-  const len = src.length;
+  var src = this._list;
+  var len = src.length;
   
-  let dest = new Array(size | this.length);
+  var dest = new Array(size | this.length);
 
-  let k = 0;
+  var k = 0;
+  var i;
   if (fullCopy || this._head > this._tail) {
-    for (let i = this._head; i < len; i++) dest[k++] = src[i];
-    for (let i = 0; i < this._tail; i++) dest[k++] = src[i];
+    for (i = this._head; i < len; i++) dest[k++] = src[i];
+    for (i = 0; i < this._tail; i++) dest[k++] = src[i];
   } else {
-    for (let i = this._head; i < this._tail; i++) dest[k++] = src[i];
+    for (i = this._head; i < this._tail; i++) dest[k++] = src[i];
   }
 
   return dest;
@@ -423,7 +424,7 @@ Denque.prototype._copyArray = function _copyArray(fullCopy, size) {
 Denque.prototype._growArray = function _growArray() {
   if (this._head != 0) {
     // double array size and copy existing data, head to end, then beginning to tail.
-    const newList = this._copyArray(true, this._list.length << 1);
+    var newList = this._copyArray(true, this._list.length << 1);
 
     this._tail = this._list.length;
     this._head = 0;
