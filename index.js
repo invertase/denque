@@ -395,38 +395,46 @@ Denque.prototype._fromArray = function _fromArray(array) {
 /**
  *
  * @param fullCopy
+ * @param size Initialize the array with a specific size. Will default to the current list size
  * @returns {Array}
  * @private
  */
-Denque.prototype._copyArray = function _copyArray(fullCopy) {
-  var newArray = [];
-  var list = this._list;
-  var len = list.length;
+Denque.prototype._copyArray = function _copyArray(fullCopy, size) {
+  var src = this._list;
+  var len = src.length;
+  
+  var dest = new Array(size | this.length);
+
+  var k = 0;
   var i;
   if (fullCopy || this._head > this._tail) {
-    for (i = this._head; i < len; i++) newArray.push(list[i]);
-    for (i = 0; i < this._tail; i++) newArray.push(list[i]);
+    for (i = this._head; i < len; i++) dest[k++] = src[i];
+    for (i = 0; i < this._tail; i++) dest[k++] = src[i];
   } else {
-    for (i = this._head; i < this._tail; i++) newArray.push(list[i]);
+    for (i = this._head; i < this._tail; i++) dest[k++] = src[i];
   }
-  return newArray;
-};
+
+  return dest;
+}
 
 /**
  * Grows the internal list array.
  * @private
  */
 Denque.prototype._growArray = function _growArray() {
-  if (this._head) {
-    // copy existing data, head to end, then beginning to tail.
-    this._list = this._copyArray(true);
+  if (this._head != 0) {
+    // double array size and copy existing data, head to end, then beginning to tail.
+    var newList = this._copyArray(true, this._list.length << 1);
+
+    this._tail = this._list.length;
     this._head = 0;
+
+    this._list = newList;
+  } else {
+    this._tail = this._list.length;
+    this._list.length <<= 1;
   }
 
-  // head is at 0 and array is now full, safe to extend
-  this._tail = this._list.length;
-
-  this._list.length <<= 1;
   this._capacityMask = (this._capacityMask << 1) | 1;
 };
 
