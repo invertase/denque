@@ -26,7 +26,8 @@
     "benchmark_splice": "node benchmark/splice",
     "benchmark_remove": "node benchmark/remove",
     "benchmark_removeOne": "node benchmark/removeOne",
-    "benchmark_growth": "node benchmark/growth"
+    "benchmark_growth": "node benchmark/growth",
+    "benchmark_toArray": "node benchmark/toArray"
   },
   "repository": {
     "type": "git",
