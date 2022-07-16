@@ -358,6 +358,7 @@ Denque.prototype.splice = function splice(index, count) {
  * Soft clear - does not reset capacity.
  */
 Denque.prototype.clear = function clear() {
+  this._list = new Array(this._list.length);
   this._head = 0;
   this._tail = 0;
 };
