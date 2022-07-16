@@ -1,4 +1,5 @@
 'use strict';
+
 require('./print');
 
 var Benchmark = require('benchmark');
