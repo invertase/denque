@@ -5,14 +5,16 @@
  */
 function Denque(array, options) {
   var options = options || {};
+  this._capacity = options.capacity;
 
   this._head = 0;
   this._tail = 0;
-  this._capacity = options.capacity;
-  this._capacityMask = 0x3;
-  this._list = new Array(4);
+
   if (Array.isArray(array)) {
     this._fromArray(array);
+  } else {
+    this._capacityMask = 0x3;
+    this._list = new Array(4);
   }
 }
 
@@ -389,7 +391,14 @@ Denque.prototype.toArray = function toArray() {
  * @private
  */
 Denque.prototype._fromArray = function _fromArray(array) {
-  for (var i = 0; i < array.length; i++) this.push(array[i]);
+  var length = array.length;
+  var capacity = this._nextPowerOf2(length);
+
+  this._list = new Array(capacity);
+  this._capacityMask = capacity - 1;
+  this._tail = length;
+
+  for (var i = 0; i < length; i++) this._list[i] = array[i];
 };
 
 /**
@@ -455,5 +464,17 @@ Denque.prototype._shrinkArray = function _shrinkArray() {
   this._capacityMask >>>= 1;
 };
 
+/**
+ * Find the next power of 2, at least 4
+ * @private
+ * @param {number} num 
+ * @returns {number}
+ */
+Denque.prototype._nextPowerOf2 = function _nextPowerOf2(num) {
+  var log2 = Math.log(num) / Math.log(2);
+  var nextPow2 = 1 << (log2 + 1);
+
+  return Math.max(nextPow2, 4);
+}
 
 module.exports = Denque;
