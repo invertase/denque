@@ -401,14 +401,22 @@ Denque.prototype._fromArray = function _fromArray(array) {
  */
 Denque.prototype._copyArray = function _copyArray(fullCopy, size) {
   var src = this._list;
-  var len = src.length;
-  
-  var dest = new Array(size | this.length);
+  var capacity = src.length;
+  var length = this.length;
+  size = size | length;
+
+  // No prealloc requested and the buffer is contiguous
+  if (size == length && this._head < this._tail) {
+    // Simply do a fast slice copy
+    return this._list.slice(this._head, this._tail);
+  }
+
+  var dest = new Array(size);
 
   var k = 0;
   var i;
   if (fullCopy || this._head > this._tail) {
-    for (i = this._head; i < len; i++) dest[k++] = src[i];
+    for (i = this._head; i < capacity; i++) dest[k++] = src[i];
     for (i = 0; i < this._tail; i++) dest[k++] = src[i];
   } else {
     for (i = this._head; i < this._tail; i++) dest[k++] = src[i];
