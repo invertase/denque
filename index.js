@@ -5,14 +5,16 @@
  */
 function Denque(array, options) {
   var options = options || {};
+  this._capacity = options.capacity;
 
   this._head = 0;
   this._tail = 0;
-  this._capacity = options.capacity;
-  this._capacityMask = 0x3;
-  this._list = new Array(4);
+
   if (Array.isArray(array)) {
     this._fromArray(array);
+  } else {
+    this._capacityMask = 0x3;
+    this._list = new Array(4);
   }
 }
 
@@ -389,7 +391,14 @@ Denque.prototype.toArray = function toArray() {
  * @private
  */
 Denque.prototype._fromArray = function _fromArray(array) {
-  for (var i = 0; i < array.length; i++) this.push(array[i]);
+  var length = array.length;
+  var capacity = this._nextPowerOf2(length);
+
+  this._list = new Array(capacity);
+  this._capacityMask = capacity - 1;
+  this._tail = length;
+
+  for (var i = 0; i < length; i++) this._list[i] = array[i];
 };
 
 /**
@@ -401,14 +410,22 @@ Denque.prototype._fromArray = function _fromArray(array) {
  */
 Denque.prototype._copyArray = function _copyArray(fullCopy, size) {
   var src = this._list;
-  var len = src.length;
-  
-  var dest = new Array(size | this.length);
+  var capacity = src.length;
+  var length = this.length;
+  size = size | length;
+
+  // No prealloc requested and the buffer is contiguous
+  if (size == length && this._head < this._tail) {
+    // Simply do a fast slice copy
+    return this._list.slice(this._head, this._tail);
+  }
+
+  var dest = new Array(size);
 
   var k = 0;
   var i;
   if (fullCopy || this._head > this._tail) {
-    for (i = this._head; i < len; i++) dest[k++] = src[i];
+    for (i = this._head; i < capacity; i++) dest[k++] = src[i];
     for (i = 0; i < this._tail; i++) dest[k++] = src[i];
   } else {
     for (i = this._head; i < this._tail; i++) dest[k++] = src[i];
@@ -447,5 +464,17 @@ Denque.prototype._shrinkArray = function _shrinkArray() {
   this._capacityMask >>>= 1;
 };
 
+/**
+ * Find the next power of 2, at least 4
+ * @private
+ * @param {number} num 
+ * @returns {number}
+ */
+Denque.prototype._nextPowerOf2 = function _nextPowerOf2(num) {
+  var log2 = Math.log(num) / Math.log(2);
+  var nextPow2 = 1 << (log2 + 1);
+
+  return Math.max(nextPow2, 4);
+}
 
 module.exports = Denque;
