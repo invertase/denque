@@ -25,7 +25,8 @@
     "benchmark_2mil": "node benchmark/two_million",
     "benchmark_splice": "node benchmark/splice",
     "benchmark_remove": "node benchmark/remove",
-    "benchmark_removeOne": "node benchmark/removeOne"
+    "benchmark_removeOne": "node benchmark/removeOne",
+    "benchmark_growth": "node benchmark/growth"
   },
   "repository": {
     "type": "git",
