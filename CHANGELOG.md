@@ -1,3 +1,10 @@
+## 2.1.0
+
+ - fix: issue where `clear()` is still keeping references to the elements (#47)
+ - refactor: performance optimizations for growth and array copy (#43)
+ - refactor: performance optimizations for toArray and fromArray (#46)
+ - test: add additional benchmarks for queue growth and `toArray` (#45)
+
 ## 2.0.1
 
  - fix(types): incorrect return type on `size()`
