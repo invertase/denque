@@ -52,7 +52,7 @@
     "codecov": "^3.8.3",
     "double-ended-queue": "^2.1.0-0",
     "istanbul": "^0.4.5",
-    "mocha": "^3.5.3",
+    "mocha": "^10.2.0",
     "typescript": "^3.4.1"
   }
 }
